@@ -66,7 +66,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# Note: Removed 'public' from gitignore since React needs public/ folder
 
 # Storybook build outputs
 .out
