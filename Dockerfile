@@ -9,11 +9,17 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy necessary files and folders
+# Copy source code
 COPY public/ ./public/
 COPY src/ ./src/
 
-# Build the app
+# Accept build arguments (for build-time environment variables)
+ARG REACT_APP_SITE_TITLE="Phitik.com"
+ARG REACT_APP_SITE_DESCRIPTION="Development proxy server"
+ARG REACT_APP_GITHUB_URL="https://github.com"
+ARG REACT_APP_LINKEDIN_URL="https://linkedin.com"
+
+# Build the app (CRA will use ARG values automatically)
 RUN npm run build
 
 # Install serve globally
