@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  phitik-app:
+    build: 
+      context: .
+      args:
+        - REACT_APP_SITE_TITLE=${REACT_APP_SITE_TITLE:-Phitik.com}
+        - REACT_APP_SITE_DESCRIPTION=${REACT_APP_SITE_DESCRIPTION:-Personal portfolio and development server}
+        - REACT_APP_GITHUB_URL=${REACT_APP_GITHUB_URL:-https://github.com/yourusername}
+        - REACT_APP_LINKEDIN_URL=${REACT_APP_LINKEDIN_URL:-https://linkedin.com/in/yourprofile}
+    ports:
+      - "3002:3000"
+    restart: unless-stopped
+    container_name: phitik-web
+
+  # Optional: Development version with hot reload
+  phitik-dev:
+    build: 
+      context: .
+      target: development
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - REACT_APP_SITE_TITLE=${REACT_APP_SITE_TITLE:-Phitik.com - Dev}
+      - REACT_APP_SITE_DESCRIPTION=${REACT_APP_SITE_DESCRIPTION:-Development server}
+      - REACT_APP_GITHUB_URL=${REACT_APP_GITHUB_URL:-https://github.com/yourusername}
+      - REACT_APP_LINKEDIN_URL=${REACT_APP_LINKEDIN_URL:-https://linkedin.com/in/yourprofile}
+    restart: unless-stopped
+    container_name: phitik-dev
+    profiles:
+      - dev
