@@ -1,8 +1,10 @@
 # Phitik.com
 
-A minimal proxy development server built with React.
+A minimal personal portfolio website built with React.
 
 ## 🚀 Quick Start
+
+### Local Development
 
 ```bash
 # Install dependencies
@@ -15,75 +17,58 @@ npm start
 npm run build
 ```
 
-## ⚙️ Configuration
-
-Copy `.env.example` to `.env` and configure your settings:
-
-```bash
-cp .env.example .env
-```
-
-Then edit `.env` with your actual values:
-
-```env
-# Social Media Links
-REACT_APP_GITHUB_URL=https://github.com/yourusername
-REACT_APP_LINKEDIN_URL=https://linkedin.com/in/yourprofile
-
-# Site Configuration
-REACT_APP_SITE_TITLE=Your Site Title
-REACT_APP_SITE_DESCRIPTION=Your site description
-```
-
 ## 🐳 Docker Deployment
 
-### Build and Run with Docker
+### Using Docker Compose (Recommended)
+
+```bash
+# Production build and run on port 3002
+docker compose up -d phitik-app
+
+# Development mode with hot reload on port 3001
+docker compose --profile dev up phitik-dev
+
+# Stop services
+docker compose down
+```
+
+### Using Docker directly
 
 ```bash
 # Build the Docker image
 docker build -t phitik-app .
 
-# Run the container
-docker run -p 3000:3000 phitik-app
+# Run the container on port 3002
+docker run -p 3002:3000 phitik-app
 
-# Run with environment variables
-docker run -p 3000:3000 \
-  -e REACT_APP_GITHUB_URL=https://github.com/yourusername \
-  -e REACT_APP_LINKEDIN_URL=https://linkedin.com/in/yourprofile \
-  -e REACT_APP_SITE_TITLE="My Custom Title" \
-  phitik-app
+# Run with custom environment variables
+docker build \
+  --build-arg REACT_APP_SITE_TITLE="My Portfolio" \
+  --build-arg REACT_APP_GITHUB_URL="https://github.com/yourusername" \
+  -t phitik-app .
 ```
 
-### Docker Compose (Optional)
+## ⚙️ Environment Variables
 
-Create a `docker-compose.yml` file:
+Create a `.env` file in the root directory:
 
-```yaml
-version: '3.8'
-services:
-  phitik-app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - REACT_APP_GITHUB_URL=https://github.com/yourusername
-      - REACT_APP_LINKEDIN_URL=https://linkedin.com/in/yourprofile
+```env
+# Site Configuration
+REACT_APP_SITE_TITLE=Phitik.com
+REACT_APP_SITE_DESCRIPTION=Personal portfolio and development server
+
+# Social Media Links
+REACT_APP_GITHUB_URL=https://github.com/yourusername
+REACT_APP_LINKEDIN_URL=https://linkedin.com/in/yourprofile
 ```
 
-Then run:
-```bash
-docker-compose up -d
-```
+All environment variables must be prefixed with `REACT_APP_` to be accessible in the browser.
 
-## 🌐 Other Deployment Options
+## 🌐 Deployment Options
 
 ### Netlify
 1. Connect your repository to Netlify
-2. Set environment variables in Netlify dashboard:
-   - `REACT_APP_GITHUB_URL`
-   - `REACT_APP_LINKEDIN_URL`
-   - `REACT_APP_SITE_TITLE`
-   - `REACT_APP_SITE_DESCRIPTION`
+2. Set environment variables in Netlify dashboard
 3. Deploy automatically on push
 
 ### Vercel
@@ -91,9 +76,11 @@ docker-compose up -d
 2. Add environment variables in Vercel dashboard
 3. Deploy automatically on push
 
-### GitHub Pages
-1. Run `npm run build`
-2. Deploy the `build` folder to GitHub Pages
+### Docker-based Hosting
+- Railway
+- DigitalOcean App Platform
+- AWS Container Services
+- Google Cloud Run
 
 ## 📁 Project Structure
 
@@ -105,14 +92,19 @@ src/
 └── index.js        # Entry point
 ```
 
-## 🔧 Environment Variables
+## 🛠️ Available Environment Variables
 
-All environment variables must be prefixed with `REACT_APP_` to be accessible in the browser.
-
-- `REACT_APP_GITHUB_URL` - Your GitHub profile URL
-- `REACT_APP_LINKEDIN_URL` - Your LinkedIn profile URL  
 - `REACT_APP_SITE_TITLE` - Site title (default: "Phitik.com")
-- `REACT_APP_SITE_DESCRIPTION` - Site description (default: "Development proxy server")
+- `REACT_APP_SITE_DESCRIPTION` - Site description (default: "Personal portfolio and development server")
+- `REACT_APP_GITHUB_URL` - Your GitHub profile URL
+- `REACT_APP_LINKEDIN_URL` - Your LinkedIn profile URL
+
+## 🏗️ Architecture
+
+- **Multi-stage Dockerfile** for optimized production builds
+- **Development and Production** environments in Docker Compose
+- **Environment variable support** at build time
+- **Static file serving** with serve package
 
 ## 📄 License
 
