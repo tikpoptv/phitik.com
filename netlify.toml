@@ -1,0 +1,16 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirect all requests to index.html for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables for production (set these in Netlify dashboard)
+# REACT_APP_GITHUB_URL=https://github.com/yourusername
+# REACT_APP_LINKEDIN_URL=https://linkedin.com/in/yourprofile
