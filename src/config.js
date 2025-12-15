@@ -2,7 +2,9 @@
 const config = {
   site: {
     title: process.env.REACT_APP_SITE_TITLE || 'Phitik.com',
-    description: process.env.REACT_APP_SITE_DESCRIPTION || 'Development proxy server'
+    name: process.env.REACT_APP_SITE_NAME || 'Jedsadaporn Pannok',
+    subtitle: process.env.REACT_APP_SITE_SUBTITLE || 'Developer & Creator',
+    bio: process.env.REACT_APP_SITE_BIO || 'Building digital experiences and exploring new technologies'
   },
   socialLinks: {
     github: process.env.REACT_APP_GITHUB_URL || 'https://github.com',
