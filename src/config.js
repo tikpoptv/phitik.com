@@ -15,6 +15,9 @@ const config = {
     url: process.env.REACT_APP_PROXY_URL || 'https://home.ddns.phitik.com',
     checkInterval: process.env.REACT_APP_STATUS_CHECK_INTERVAL || 30000 // 30 seconds
   },
+  status: {
+    checkInterval: process.env.REACT_APP_STATUS_CHECK_INTERVAL || 30000 // 30 seconds
+  },
   // Environment info
   isDevelopment: process.env.NODE_ENV === 'development',
   isProduction: process.env.NODE_ENV === 'production'

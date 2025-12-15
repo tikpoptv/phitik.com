@@ -44,14 +44,37 @@
       "id": 4,
       "title": "Online Mobile Installment System",
       "description": "Full-stack web platform for mobile phone installment management with product control, payment tracking, and secure iCloud account binding. Built with React, TypeScript, Vite, and Go backend.",
-      "tags": ["React", "TypeScript", "Vite", "Go", "Full-Stack"]
+      "tags": ["React", "TypeScript", "Vite", "Go", "Full-Stack"],
+      "website": "https://admin.applebytemobilephones.com/",
+      "hideWebsite": true
     },
     {
       "id": 5,
       "title": "Airline Management System",
       "description": "Complete airline management platform with React.js, Tailwind CSS, TypeScript (frontend) and Go, GORM, PostgreSQL, JWT Auth (backend). Features responsive UI and secure RESTful APIs.",
       "tags": ["React", "Go", "PostgreSQL", "JWT", "REST API"],
-      "github": "https://github.com/tikpoptv"
+      "github": "https://github.com/tikpoptv/Airline-Management-System-Frontend",
+      "website": "https://airline.phitik.com/",
+      "more": {
+        "title": "About Airline Management System",
+        "content": [
+          "A comprehensive full-stack airline management platform designed for managing flights, bookings, and airline operations. Built with modern technologies and best practices."
+        ],
+        "features": [
+          "Flight Management with scheduling and route management",
+          "Booking System with seat selection and payment processing",
+          "User Authentication with JWT-based security",
+          "Admin Dashboard for airline operations",
+          "Responsive UI with Tailwind CSS",
+          "RESTful API with Go backend",
+          "PostgreSQL database for data persistence"
+        ],
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Vite", "Go", "GORM", "PostgreSQL", "JWT", "Docker", "REST API"],
+        "repositories": {
+          "frontend": "https://github.com/tikpoptv/Airline-Management-System-Frontend",
+          "backend": "https://github.com/tikpoptv/Airline-Management-System-Backend"
+        }
+      }
     },
     {
       "id": 6,

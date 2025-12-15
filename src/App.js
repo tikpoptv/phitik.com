@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaTrophy, FaBriefcase, FaGraduationCap, FaCode, FaLaptopCode, FaGlobe, FaServer, FaDatabase, FaTools, FaBrain, FaInfoCircle } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTrophy, FaBriefcase, FaGraduationCap, FaCode, FaLaptopCode, FaGlobe, FaServer, FaDatabase, FaTools, FaBrain, FaInfoCircle, FaCheckCircle, FaExclamationCircle, FaClock } from 'react-icons/fa';
 import { SiPython, SiGo, SiC, SiCplusplus, SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiAstro, SiVite, SiSpring, SiExpress, SiNodedotjs, SiPostgresql, SiMongodb, SiMinio, SiAmazonwebservices, SiCloudflare, SiDocker, SiJenkins, SiGithubactions, SiGit, SiTensorflow, SiPytorch } from 'react-icons/si';
 import { Icon } from '@iconify/react';
 import './App.css';
@@ -18,11 +18,11 @@ function App() {
   const [portfolioError, setPortfolioError] = useState(false);
   const [proxyStatus, setProxyStatus] = useState(null); // null = checking, true = online, false = offline
   const [selectedItem, setSelectedItem] = useState(null); // For modal
+  const [serviceStatuses, setServiceStatuses] = useState({}); // { serviceId: { status: 'operational'|'degraded'|'down', lastCheck: Date, responseTime: number } }
   const portfolioSectionRef = useRef(null);
   const heroSectionRef = useRef(null);
   const cardRefs = useRef([]);
 
-  // Icon mapping for categories
   const iconMap = {
     FaLaptopCode,
     FaGlobe,
@@ -32,12 +32,10 @@ function App() {
     FaBrain
   };
 
-  // Wrapper components for Iconify icons
   const IconifyIcon = ({ icon, className }) => (
     <Icon icon={icon} className={className} />
   );
 
-  // Icon mapping for skills
   const skillIconMap = {
     'Python': SiPython,
     'Java': (props) => <IconifyIcon icon="logos:java" {...props} />,
@@ -73,10 +71,8 @@ function App() {
     'PyTorch': SiPytorch
   };
 
-  // Load all data from JSON files
   useEffect(() => {
     const loadAllData = async () => {
-      // Load portfolio data
       try {
         setIsPortfolioLoading(true);
         setPortfolioError(false);
@@ -94,7 +90,6 @@ function App() {
         setIsPortfolioLoading(false);
       }
       
-      // Load skills data
       try {
         const skillsResponse = await fetch('/skills.json');
         if (skillsResponse.ok) {
@@ -105,7 +100,6 @@ function App() {
         console.error('Error loading skills data:', error);
       }
       
-      // Load experience data
       try {
         const experienceResponse = await fetch('/experience.json');
         if (experienceResponse.ok) {
@@ -116,7 +110,6 @@ function App() {
         console.error('Error loading experience data:', error);
       }
       
-      // Load education data
       try {
         const educationResponse = await fetch('/education.json');
         if (educationResponse.ok) {
@@ -127,7 +120,6 @@ function App() {
         console.error('Error loading education data:', error);
       }
       
-      // Load awards data
       try {
         const awardsResponse = await fetch('/awards.json');
         if (awardsResponse.ok) {
@@ -142,12 +134,9 @@ function App() {
     loadAllData();
   }, []);
 
-  // Check proxy status
   useEffect(() => {
     const checkProxyStatus = async () => {
       try {
-        // Use image loading to check if proxy is accessible
-        // This works even with CORS restrictions
         const img = new Image();
         let statusChecked = false;
         
@@ -174,7 +163,6 @@ function App() {
           }
         };
         
-        // Try to load favicon or any small resource
         img.src = `${config.proxy.url}/favicon.ico?t=${Date.now()}`;
       } catch (error) {
         console.error('Error checking proxy status:', error);
@@ -182,10 +170,7 @@ function App() {
       }
     };
 
-    // Initial check
     checkProxyStatus();
-
-    // Check periodically
     const intervalId = setInterval(checkProxyStatus, config.proxy.checkInterval);
 
     return () => {
@@ -194,7 +179,178 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Intersection Observer for card animations
+  useEffect(() => {
+    const checkServiceStatus = async (service) => {
+      const startTime = Date.now();
+      let status = 'unreachable';
+      let responseTime = null;
+      let errorType = null;
+      let httpStatus = null;
+      
+      try {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 10000);
+          
+          const response = await fetch(service.url, {
+            method: 'GET',
+            mode: 'cors',
+            signal: controller.signal,
+            cache: 'no-cache',
+            credentials: 'omit',
+            redirect: 'follow'
+          });
+          
+          clearTimeout(timeoutId);
+          responseTime = Date.now() - startTime;
+          httpStatus = response.status;
+          
+          if (response.status >= 200 && response.status < 300) {
+            status = responseTime > 3000 ? 'degraded' : 'operational';
+          } else if (response.status >= 300 && response.status < 400) {
+            status = 'operational';
+          } else if (response.status === 400 || response.status === 401 || response.status === 403 || response.status === 404) {
+            status = 'degraded';
+            errorType = `HTTP ${response.status}`;
+          } else if (response.status === 429) {
+            status = 'degraded';
+            errorType = 'Rate Limited';
+          } else if (response.status === 502) {
+            status = 'down';
+            errorType = 'Bad Gateway';
+          } else if (response.status === 503) {
+            status = 'down';
+            errorType = 'Service Unavailable';
+          } else if (response.status === 504) {
+            status = 'timeout';
+            errorType = 'Gateway Timeout';
+          } else if (response.status >= 500) {
+            status = 'down';
+            errorType = `Server Error ${response.status}`;
+          } else {
+            status = 'degraded';
+            errorType = `HTTP ${response.status}`;
+          }
+        } catch (fetchError) {
+          if (fetchError.name === 'AbortError') {
+            status = 'timeout';
+            errorType = 'Connection Timeout';
+            responseTime = Date.now() - startTime;
+          } else if (fetchError.message.includes('Failed to fetch') || fetchError.message.includes('NetworkError')) {
+            try {
+              const imgStartTime = Date.now();
+              const img = new Image();
+              
+              const imgResult = await new Promise((resolve, reject) => {
+                const imgTimeout = setTimeout(() => {
+                  img.src = '';
+                  reject(new Error('Image timeout'));
+                }, 8000);
+                
+                img.onload = () => {
+                  clearTimeout(imgTimeout);
+                  resolve('loaded');
+                };
+                
+                img.onerror = (e) => {
+                  clearTimeout(imgTimeout);
+                  if (img.complete || img.naturalHeight !== 0 || img.naturalWidth !== 0) {
+                    resolve('error-but-reachable');
+                  } else {
+                    reject(new Error('Image unreachable'));
+                  }
+                };
+                
+                const urlObj = new URL(service.url);
+                const rootUrl = `${urlObj.protocol}//${urlObj.host}`;
+                img.src = `${rootUrl}/favicon.ico?t=${Date.now()}`;
+              });
+              
+              responseTime = Date.now() - imgStartTime;
+              
+              if (imgResult === 'loaded') {
+                status = 'operational';
+              } else if (imgResult === 'error-but-reachable') {
+                status = 'degraded';
+                errorType = 'Resource Not Found';
+              }
+            } catch (imgError) {
+              if (imgError.message.includes('timeout')) {
+                status = 'timeout';
+                errorType = 'Connection Timeout';
+              } else {
+                status = 'unreachable';
+                errorType = 'Network Unreachable';
+              }
+              responseTime = Date.now() - startTime;
+            }
+          } else {
+            status = 'unreachable';
+            errorType = fetchError.message;
+            responseTime = Date.now() - startTime;
+          }
+        }
+        
+        setServiceStatuses(prev => ({
+          ...prev,
+          [service.id]: {
+            status,
+            lastCheck: new Date(),
+            responseTime,
+            errorType,
+            httpStatus
+          }
+        }));
+      } catch (error) {
+        console.error(`Error checking ${service.name}:`, error);
+        setServiceStatuses(prev => ({
+          ...prev,
+          [service.id]: {
+            status: 'unreachable',
+            lastCheck: new Date(),
+            responseTime: Date.now() - startTime,
+            errorType: error.message || 'Unknown Error',
+            httpStatus: null
+          }
+        }));
+      }
+    };
+
+    const checkAllServices = async () => {
+      const servicesWithWebsite = portfolioItems
+        .filter(item => item.website)
+        .map(item => ({
+          id: `portfolio-${item.id}`,
+          name: item.title,
+          url: item.website,
+          description: item.description,
+          icon: 'globe'
+        }));
+
+      const homeServer = {
+        id: 'home-server',
+        name: 'Home Server',
+        url: config.proxy.url,
+        description: 'Self-hosted infrastructure running multiple services including APIs, databases, and containerized applications',
+        icon: 'server'
+      };
+
+      const allServices = [...servicesWithWebsite, homeServer];
+      
+      await Promise.all(allServices.map(service => checkServiceStatus(service)));
+    };
+
+    if (portfolioItems.length > 0) {
+      checkAllServices();
+      const intervalId = setInterval(checkAllServices, config.status?.checkInterval || 30000);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [portfolioItems]);
+
   useEffect(() => {
     if (portfolioItems.length === 0) return;
     
@@ -226,7 +382,6 @@ function App() {
     };
   }, [portfolioItems]);
 
-  // Handle scroll event
   useEffect(() => {
     let scrollTimeout;
     let lastScrollTop = 0;
@@ -235,15 +390,12 @@ function App() {
     const handleScroll = () => {
       const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Detect scroll direction
       if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-        // Scrolling down
         if (!isScrollingDown && !isScrolling) {
           isScrollingDown = true;
           setIsScrolling(true);
           setShowScrollHint(false);
           
-          // Smooth scroll to portfolio section
           if (portfolioSectionRef.current) {
             portfolioSectionRef.current.scrollIntoView({ 
               behavior: 'smooth',
@@ -251,14 +403,12 @@ function App() {
             });
           }
           
-          // Reset scrolling state after animation
           scrollTimeout = setTimeout(() => {
             setIsScrolling(false);
             isScrollingDown = false;
           }, 1000);
         }
       } else if (currentScrollTop < lastScrollTop && currentScrollTop < 50) {
-        // Scrolling up near top
         setShowScrollHint(true);
         isScrollingDown = false;
       }
@@ -377,7 +527,7 @@ function App() {
                           <span>GitHub</span>
                         </a>
                       )}
-                      {item.website && (
+                      {item.website && !item.hideWebsite && (
                         <a href={item.website} className="portfolio-link portfolio-link-website" target="_blank" rel="noopener noreferrer">
                           <FaGlobe className="portfolio-link-icon" />
                           <span>Website</span>
@@ -398,6 +548,191 @@ function App() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="status-section">
+        <div className="container">
+          <h2 className="section-title">
+            <FaServer className="section-icon" />
+            System Status
+          </h2>
+          <p className="status-description">
+            Real-time monitoring of services running on phitik.com infrastructure
+          </p>
+          <div className="status-grid">
+            {portfolioItems
+              .filter(item => item.website)
+              .map((item) => {
+                const serviceId = `portfolio-${item.id}`;
+                const status = serviceStatuses[serviceId];
+                
+                const getStatusInfo = () => {
+                  if (!status) return { class: 'checking', text: 'Checking...', icon: <FaClock className="status-indicator-icon" /> };
+                  
+                  switch (status.status) {
+                    case 'operational':
+                      return { class: 'operational', text: 'Operational', icon: <FaCheckCircle className="status-indicator-icon" /> };
+                    case 'degraded':
+                      return { class: 'degraded', text: 'Degraded', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                    case 'down':
+                      return { class: 'down', text: 'Down', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                    case 'timeout':
+                      return { class: 'timeout', text: 'Timeout', icon: <FaClock className="status-indicator-icon" /> };
+                    case 'unreachable':
+                      return { class: 'unreachable', text: 'Unreachable', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                    default:
+                      return { class: 'unknown', text: 'Unknown', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                  }
+                };
+                
+                const statusInfo = getStatusInfo();
+
+                return (
+                  <div key={serviceId} className={`status-card status-card-${statusInfo.class}`}>
+                    <div className="status-card-header">
+                      <div className="status-service-info">
+                        <FaGlobe className="status-service-icon" />
+                        <div className="status-service-details">
+                          <h3 className="status-service-name">{item.title}</h3>
+                          <p className="status-service-description">{item.description}</p>
+                        </div>
+                      </div>
+                      <div className={`status-badge status-badge-${statusInfo.class}`}>
+                        {statusInfo.icon}
+                        <span>{statusInfo.text}</span>
+                      </div>
+                    </div>
+                    <div className="status-card-body">
+                      <div className="status-metrics">
+                        {status?.responseTime && (
+                          <div className="status-metric">
+                            <span className="status-metric-label">Response Time</span>
+                            <span className="status-metric-value">{status.responseTime}ms</span>
+                          </div>
+                        )}
+                        {status?.httpStatus && (
+                          <div className="status-metric">
+                            <span className="status-metric-label">HTTP Status</span>
+                            <span className="status-metric-value">{status.httpStatus}</span>
+                          </div>
+                        )}
+                        {status?.errorType && (
+                          <div className="status-metric">
+                            <span className="status-metric-label">Error</span>
+                            <span className="status-metric-value status-error-text">{status.errorType}</span>
+                          </div>
+                        )}
+                        {status?.lastCheck && (
+                          <div className="status-metric">
+                            <span className="status-metric-label">Last Check</span>
+                            <span className="status-metric-value">
+                              {new Date(status.lastCheck).toLocaleTimeString()}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      {item.website && !item.hideWebsite && (
+                        <a 
+                          href={item.website} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="status-service-link"
+                        >
+                          <FaGlobe className="status-link-icon" />
+                          <span>Visit Service</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            
+            {(() => {
+              const serviceId = 'home-server';
+              const status = serviceStatuses[serviceId];
+              
+              const getStatusInfo = () => {
+                if (!status) return { class: 'checking', text: 'Checking...', icon: <FaClock className="status-indicator-icon" /> };
+                
+                switch (status.status) {
+                  case 'operational':
+                    return { class: 'operational', text: 'Operational', icon: <FaCheckCircle className="status-indicator-icon" /> };
+                  case 'degraded':
+                    return { class: 'degraded', text: 'Degraded', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                  case 'down':
+                    return { class: 'down', text: 'Down', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                  case 'timeout':
+                    return { class: 'timeout', text: 'Timeout', icon: <FaClock className="status-indicator-icon" /> };
+                  case 'unreachable':
+                    return { class: 'unreachable', text: 'Unreachable', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                  default:
+                    return { class: 'unknown', text: 'Unknown', icon: <FaExclamationCircle className="status-indicator-icon" /> };
+                }
+              };
+              
+              const statusInfo = getStatusInfo();
+
+              return (
+                <div key={serviceId} className={`status-card status-card-${statusInfo.class}`}>
+                  <div className="status-card-header">
+                    <div className="status-service-info">
+                      <FaServer className="status-service-icon" />
+                      <div className="status-service-details">
+                        <h3 className="status-service-name">Home Server</h3>
+                        <p className="status-service-description">Self-hosted infrastructure running multiple services including APIs, databases, and containerized applications</p>
+                      </div>
+                    </div>
+                    <div className={`status-badge status-badge-${statusInfo.class}`}>
+                      {statusInfo.icon}
+                      <span>{statusInfo.text}</span>
+                    </div>
+                  </div>
+                  <div className="status-card-body">
+                    <div className="status-metrics">
+                      {status?.responseTime && (
+                        <div className="status-metric">
+                          <span className="status-metric-label">Response Time</span>
+                          <span className="status-metric-value">{status.responseTime}ms</span>
+                        </div>
+                      )}
+                      {status?.httpStatus && (
+                        <div className="status-metric">
+                          <span className="status-metric-label">HTTP Status</span>
+                          <span className="status-metric-value">{status.httpStatus}</span>
+                        </div>
+                      )}
+                      {status?.errorType && (
+                        <div className="status-metric">
+                          <span className="status-metric-label">Error</span>
+                          <span className="status-metric-value status-error-text">{status.errorType}</span>
+                        </div>
+                      )}
+                      {status?.lastCheck && (
+                        <div className="status-metric">
+                          <span className="status-metric-label">Last Check</span>
+                          <span className="status-metric-value">
+                            {new Date(status.lastCheck).toLocaleTimeString()}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    {config.proxy.url && (
+                      <a 
+                        href={config.proxy.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="status-service-link"
+                      >
+                        <FaGlobe className="status-link-icon" />
+                        <span>Visit Service</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
         </div>
       </section>
 
@@ -547,6 +882,25 @@ function App() {
                           </div>
                         </div>
                       )}
+                      {selectedItem.more.repositories && (
+                        <div className="modal-repositories">
+                          <h4>Repositories:</h4>
+                          <div className="modal-repo-links">
+                            {selectedItem.more.repositories.frontend && (
+                              <a href={selectedItem.more.repositories.frontend} className="modal-repo-link" target="_blank" rel="noopener noreferrer">
+                                <FaGithub className="modal-repo-icon" />
+                                <span>Frontend</span>
+                              </a>
+                            )}
+                            {selectedItem.more.repositories.backend && (
+                              <a href={selectedItem.more.repositories.backend} className="modal-repo-link" target="_blank" rel="noopener noreferrer">
+                                <FaGithub className="modal-repo-icon" />
+                                <span>Backend</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
@@ -560,13 +914,13 @@ function App() {
               )}
             </div>
             <div className="modal-footer">
-              {selectedItem.github && (
+              {selectedItem.github && !selectedItem.more?.repositories && (
                 <a href={selectedItem.github} className="modal-link modal-link-github" target="_blank" rel="noopener noreferrer">
                   <FaGithub className="modal-link-icon" />
                   <span>View on GitHub</span>
                 </a>
               )}
-              {selectedItem.website && (
+              {selectedItem.website && !selectedItem.hideWebsite && (
                 <a href={selectedItem.website} className="modal-link modal-link-website" target="_blank" rel="noopener noreferrer">
                   <FaGlobe className="modal-link-icon" />
                   <span>Visit Website</span>
