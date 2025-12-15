@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Product Development Engineer / VP of AI",
+      "company": "RIFFAI",
+      "period": "July 2024 – Present",
+      "location": "Remote",
+      "details": [
+        "Developed and optimized RNN, LSTM, and CNN models for time-series forecasting and image recognition",
+        "Built and deployed full-stack products using React, Next.js, Express.js, MinIO, and Azure Cloud"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Application Developer",
+      "company": "SCB - Siam Commercial Bank",
+      "period": "October 2024 – Present",
+      "location": "Hybrid",
+      "details": [
+        "Developed backend web applications using Java Spring Boot for efficient data processing and API integration",
+        "Automated Excel-to-SQL data transformation for optimized internal data management",
+        "Contributed to frontend modules with React.js, Next.js, TypeScript, and Tailwind CSS"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Teaching Assistant",
+      "company": "Department of Computer Engineering, KMUTT",
+      "period": "Aug 2025 – Present",
+      "location": "On-site",
+      "details": [
+        "Assist in teaching user experience (UX) and user interface (UI) design principles",
+        "Support students in creating wireframes, usability testing, and evaluating prototypes"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "IT Support Technician",
+      "company": "DEETAWEE Accounting & Law Co., Ltd.",
+      "period": "Jan 2023 – Present",
+      "location": "Remote / On-site",
+      "details": [
+        "Managed and maintained company's IT infrastructure, including LAN network, NAS storage, and internal file-sharing systems",
+        "Provided hardware/software troubleshooting and preventive maintenance"
+      ]
+    }
+  ]
+}
+

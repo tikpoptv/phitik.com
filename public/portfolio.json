@@ -1,4 +1,86 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": 1,
+      "title": "MUSE Music - AI-Powered Music Platform",
+      "description": "Full-stack music web application with AI-powered lyrics translation, sentiment analysis, and personalized music recommendations. Built with Next.js, Express.js, PostgreSQL, and MinIO.",
+      "tags": ["Next.js", "Express.js", "PostgreSQL", "AI/ML", "MinIO"],
+      "github": "https://github.com/tikpoptv/MUSE-MUSIC",
+      "website": "https://musemusic.phitik.com/",
+      "more": {
+        "title": "About MUSE Music",
+        "content": [
+          "MUSE Music is a modern music web application that combines AI-powered lyrics analysis, translation, and personalized recommendations. The platform enables users to discover music, analyze lyrics, and get AI-generated insights about their favorite songs.",
+          "Latest version 1.3.0 'Seamless Journey' includes YouTube transcript integration, enhanced fullscreen player, favorites & history system, and comprehensive privacy & legal pages."
+        ],
+        "features": [
+          "Music Discovery with YouTube integration",
+          "Lyrics Management from LRCLIB with automatic synchronization",
+          "AI Analysis for lyrics translation, mood detection, and summaries",
+          "User Authentication with JWT, Google OAuth, and 2FA support",
+          "Personalization with song ratings and recommendations",
+          "Image Management with MinIO object storage",
+          "YouTube Transcript Integration for auto-fetching lyrics",
+          "Favorites & History System for complete user tracking"
+        ],
+        "technologies": ["Next.js 15", "TypeScript", "Express.js", "PostgreSQL", "JWT", "MinIO", "Tailwind CSS", "shadcn/ui", "Docker", "Jenkins", "GitHub Actions", "Swagger", "Jest", "Playwright"]
+      }
+    },
+    {
+      "id": 2,
+      "title": "KMUTT Engineering Open House 2025",
+      "description": "Bilingual (TH/EN) website for KMUTT Engineering Open House 2025 using Astro 5, TailwindCSS 4, and TypeScript. Implemented i18n with language switcher and deployed on Cloudflare Pages.",
+      "tags": ["Astro", "TypeScript", "TailwindCSS", "Cloudflare Pages"],
+      "github": "https://github.com/kmutt-engineering-openhouse"
+    },
+    {
+      "id": 3,
+      "title": "Bangmod Hackathon 2025 - Discord Verification System",
+      "description": "Discord bot and web dashboard using Node.js, Express, React, and PostgreSQL for secure student verification system.",
+      "tags": ["Node.js", "Express", "React", "PostgreSQL", "Discord API"],
+      "github": "https://github.com/tikpoptv/discord-verify"
+    },
+    {
+      "id": 4,
+      "title": "Online Mobile Installment System",
+      "description": "Full-stack web platform for mobile phone installment management with product control, payment tracking, and secure iCloud account binding. Built with React, TypeScript, Vite, and Go backend.",
+      "tags": ["React", "TypeScript", "Vite", "Go", "Full-Stack"]
+    },
+    {
+      "id": 5,
+      "title": "Airline Management System",
+      "description": "Complete airline management platform with React.js, Tailwind CSS, TypeScript (frontend) and Go, GORM, PostgreSQL, JWT Auth (backend). Features responsive UI and secure RESTful APIs.",
+      "tags": ["React", "Go", "PostgreSQL", "JWT", "REST API"],
+      "github": "https://github.com/tikpoptv"
+    },
+    {
+      "id": 6,
+      "title": "Comcamp35 Event Management System",
+      "description": "Web-based event management system developed in collaboration with a team to improve event operations efficiency.",
+      "tags": ["Web Development", "Team Collaboration", "Event Management"],
+      "github": "https://github.com/tikpoptv/Comcamp35"
+    },
+    {
+      "id": 7,
+      "title": "CIRCUITS Project",
+      "description": "IoT development that integrates sensors, microcontrollers, and software control for real-time monitoring.",
+      "tags": ["IoT", "Microcontrollers", "Sensors", "Real-time Monitoring"],
+      "github": "https://github.com/tikpoptv/CIRCUITS_Project"
+    },
+    {
+      "id": 8,
+      "title": "Discord Webhook Automation",
+      "description": "Webhook system for Discord to automate submission processes, improving project management efficiency across events.",
+      "tags": ["Discord API", "Automation", "Webhooks", "Node.js"],
+      "github": "https://github.com/tikpoptv/ComCamp35-submissions-WebhookDiscord"
+    },
+    {
+      "id": 9,
+      "title": "Bangmod Hackathon 2025 - Register Website",
+      "description": "Frontend development using Next.js, TypeScript, and Tailwind CSS for event registration system.",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Event Registration"],
+      "github": "https://github.com/tikpoptv/bmhk-2025"
+    }
+  ]
 }
 

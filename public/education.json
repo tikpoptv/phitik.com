@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "degree": "Bachelor of Engineering in Computer Engineering",
+      "school": "King Mongkut's University of Technology Thonburi",
+      "location": "Bangkok, Thailand",
+      "period": "2023 - Present",
+      "gpa": "2.87"
+    }
+  ]
+}
+

@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Startup Thailand League 2025",
+      "role": "Product Development Team Member - RIFFAI LRAS",
+      "period": "Apr – Jul 2025",
+      "description": "Selected as one of the Top 5 teams from the Eastern–Central region. Developed ML-powered tool using RNN for insurance companies."
+    },
+    {
+      "id": 2,
+      "title": "Startup Thailand League 2024",
+      "role": "Product Development Team Member - Team HATCH แตhเกิด",
+      "period": "April 30, 2024 – June 27, 2024",
+      "description": "Advanced to Demo Day round and received national-level funding."
+    },
+    {
+      "id": 3,
+      "title": "HATCH KMUTT GEN8",
+      "role": "Product Development Team Member - Team HATCH แตhเกิด",
+      "period": "December 19, 2023 – April 28, 2024",
+      "description": "Received project funding support from KMUTT."
+    },
+    {
+      "id": 4,
+      "title": "HackaTHAILAND 2023 Roadshow - 1st Event",
+      "role": "Head of the Product Development Team - Team Certash",
+      "period": "January 30, 2023",
+      "description": "Led product design and development; presented innovative tech solutions to judges."
+    }
+  ]
+}
+

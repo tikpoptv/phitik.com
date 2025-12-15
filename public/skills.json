@@ -1,0 +1,41 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Programming Languages",
+      "icon": "FaLaptopCode",
+      "skills": ["Python", "Java", "Go", "C", "C++", "C#"]
+    },
+    {
+      "id": 2,
+      "name": "Web Development",
+      "icon": "FaGlobe",
+      "skills": ["HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Astro", "Vite"]
+    },
+    {
+      "id": 3,
+      "name": "Backend Frameworks",
+      "icon": "FaServer",
+      "skills": ["Spring Boot", "Express.js", "Go (Golang)", "Node.js"]
+    },
+    {
+      "id": 4,
+      "name": "Database & Cloud",
+      "icon": "FaDatabase",
+      "skills": ["SQL", "MongoDB", "MinIO", "AWS", "Azure", "Cloudflare Pages"]
+    },
+    {
+      "id": 5,
+      "name": "DevOps & Tools",
+      "icon": "FaTools",
+      "skills": ["Docker", "Jenkins", "GitHub Actions", "REST APIs", "CI/CD", "Git", "GitHub"]
+    },
+    {
+      "id": 6,
+      "name": "Machine Learning & AI",
+      "icon": "FaBrain",
+      "skills": ["TensorFlow", "PyTorch", "LSTM", "CNN", "RNN"]
+    }
+  ]
+}
+
