@@ -965,6 +965,44 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-section footer-section-about">
+              <h3 className="footer-title">{config.site.name || config.site.title}</h3>
+              <p className="footer-subtitle">{config.site.subtitle}</p>
+              <p className="footer-description">
+                Full-stack developer specializing in building modern web applications and scalable software solutions.
+              </p>
+            </div>
+            
+            <div className="footer-section footer-section-connect">
+              <h4 className="footer-heading">Connect</h4>
+              <div className="footer-links">
+                <a href={config.socialLinks.github} target="_blank" rel="noopener noreferrer" className="footer-link">
+                  <FaGithub className="footer-link-icon" />
+                  <span>GitHub</span>
+                </a>
+                <a href={config.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="footer-link">
+                  <FaLinkedin className="footer-link-icon" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="footer-bottom">
+            <p className="footer-copyright">
+              © {new Date().getFullYear()} {config.site.name || config.site.title}. All rights reserved.
+            </p>
+            <p className="footer-made-with">
+              Made with <span className="footer-heart">♥</span> using React
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
