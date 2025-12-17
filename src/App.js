@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaTrophy, FaBriefcase, FaGraduationCap, FaCode, FaLaptopCode, FaGlobe, FaServer, FaDatabase, FaTools, FaBrain, FaInfoCircle, FaCheckCircle, FaExclamationCircle, FaClock } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTrophy, FaBriefcase, FaGraduationCap, FaCode, FaLaptopCode, FaGlobe, FaServer, FaDatabase, FaTools, FaBrain, FaInfoCircle } from 'react-icons/fa';
 import { SiPython, SiGo, SiC, SiCplusplus, SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiAstro, SiVite, SiSpring, SiExpress, SiNodedotjs, SiPostgresql, SiMongodb, SiMinio, SiAmazonwebservices, SiCloudflare, SiDocker, SiJenkins, SiGithubactions, SiGit, SiTensorflow, SiPytorch } from 'react-icons/si';
 import { Icon } from '@iconify/react';
 import './App.css';
@@ -18,7 +18,7 @@ function App() {
   const [portfolioError, setPortfolioError] = useState(false);
   const [proxyStatus, setProxyStatus] = useState(null); // null = checking, true = online, false = offline
   const [selectedItem, setSelectedItem] = useState(null); // For modal
-  const [serviceStatuses, setServiceStatuses] = useState({}); // { serviceId: { status: 'operational'|'degraded'|'down', lastCheck: Date, responseTime: number } }
+  // const [serviceStatuses, setServiceStatuses] = useState({}); // System Status - Temporarily disabled
   const portfolioSectionRef = useRef(null);
   const heroSectionRef = useRef(null);
   const cardRefs = useRef([]);
@@ -179,7 +179,8 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
+  /* System Status - Temporarily disabled */
+  /* useEffect(() => {
     const checkServiceStatus = async (service) => {
       const startTime = Date.now();
       let status = 'unreachable';
@@ -349,7 +350,7 @@ function App() {
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [portfolioItems]);
+  }, [portfolioItems]); */
 
   useEffect(() => {
     if (portfolioItems.length === 0) return;
@@ -551,7 +552,8 @@ function App() {
         </div>
       </section>
 
-      <section className="status-section">
+      {/* System Status Section - Temporarily disabled */}
+      {/* <section className="status-section">
         <div className="container">
           <h2 className="section-title">
             <FaServer className="section-icon" />
@@ -734,7 +736,7 @@ function App() {
             })()}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Skills Section */}
       <section className="skills-section">
