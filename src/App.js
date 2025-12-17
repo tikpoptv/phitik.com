@@ -514,19 +514,46 @@ function App() {
                   style={{ '--card-index': index }}
                 >
                   <h3 className="portfolio-card-title">{item.title}</h3>
-                  <p className="portfolio-card-description">{item.description}</p>
+                  <p className="portfolio-card-description">
+                    {item.more && item.description.length > 150
+                      ? `${item.description.substring(0, 150)}...`
+                      : item.description}
+                  </p>
                   <div className="portfolio-tags">
                     {item.tags && item.tags.map((tag, tagIndex) => (
                       <span key={tagIndex} className="portfolio-tag">{tag}</span>
                     ))}
                   </div>
-                  {(item.github || item.website || item.more) && (
+                  {(item.github || item.website || item.more || (item.more && item.more.repositories)) && (
                     <div className="portfolio-links">
-                      {item.github && (
-                        <a href={item.github} className="portfolio-link portfolio-link-github" target="_blank" rel="noopener noreferrer">
-                          <FaGithub className="portfolio-link-icon" />
-                          <span>GitHub</span>
-                        </a>
+                      {item.more && item.more.repositories ? (
+                        <>
+                          {item.more.repositories.frontend && (
+                            <a href={item.more.repositories.frontend} className="portfolio-link portfolio-link-github" target="_blank" rel="noopener noreferrer">
+                              <FaGithub className="portfolio-link-icon" />
+                              <span>Frontend</span>
+                            </a>
+                          )}
+                          {item.more.repositories.backend && (
+                            <a href={item.more.repositories.backend} className="portfolio-link portfolio-link-github" target="_blank" rel="noopener noreferrer">
+                              <FaGithub className="portfolio-link-icon" />
+                              <span>Backend</span>
+                            </a>
+                          )}
+                          {item.more.repositories.survey && (
+                            <a href={item.more.repositories.survey} className="portfolio-link portfolio-link-github" target="_blank" rel="noopener noreferrer">
+                              <FaGithub className="portfolio-link-icon" />
+                              <span>Survey</span>
+                            </a>
+                          )}
+                        </>
+                      ) : (
+                        item.github && (
+                          <a href={item.github} className="portfolio-link portfolio-link-github" target="_blank" rel="noopener noreferrer">
+                            <FaGithub className="portfolio-link-icon" />
+                            <span>GitHub</span>
+                          </a>
+                        )
                       )}
                       {item.website && !item.hideWebsite && (
                         <a href={item.website} className="portfolio-link portfolio-link-website" target="_blank" rel="noopener noreferrer">
@@ -898,6 +925,12 @@ function App() {
                               <a href={selectedItem.more.repositories.backend} className="modal-repo-link" target="_blank" rel="noopener noreferrer">
                                 <FaGithub className="modal-repo-icon" />
                                 <span>Backend</span>
+                              </a>
+                            )}
+                            {selectedItem.more.repositories.survey && (
+                              <a href={selectedItem.more.repositories.survey} className="modal-repo-link" target="_blank" rel="noopener noreferrer">
+                                <FaGithub className="modal-repo-icon" />
+                                <span>Survey</span>
                               </a>
                             )}
                           </div>

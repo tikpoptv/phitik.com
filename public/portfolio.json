@@ -29,16 +29,60 @@
     {
       "id": 2,
       "title": "KMUTT Engineering Open House 2025",
-      "description": "Bilingual (TH/EN) website for KMUTT Engineering Open House 2025 using Astro 5, TailwindCSS 4, and TypeScript. Implemented i18n with language switcher and deployed on Cloudflare Pages.",
-      "tags": ["Astro", "TypeScript", "TailwindCSS", "Cloudflare Pages"],
-      "github": "https://github.com/kmutt-engineering-openhouse"
+      "description": "Bilingual (TH/EN) website for KMUTT Engineering Open House 2025 built with Astro 5, TailwindCSS 4, and TypeScript. Features i18n support with language switcher, browser-language detection, cookie-based preferences, and deployed on Cloudflare Pages with Edge Functions.",
+      "tags": ["Astro", "TypeScript", "TailwindCSS", "Cloudflare Pages", "i18n"],
+      "github": "https://github.com/kmutt-engineering-openhouse/kmutt-engineering-openhouse-2025",
+      "website": "https://bangmod.engineer/",
+      "more": {
+        "title": "About KMUTT Engineering Open House 2025",
+        "content": [
+          "A comprehensive bilingual website for KMUTT Engineering Open House 2025 event, featuring full internationalization support with automatic language detection and cookie-based preferences. The project consists of three main components: the main website, survey system, and backend API.",
+          "The website is built with modern web technologies and deployed on Cloudflare Pages with Edge Functions for optimal performance and global distribution."
+        ],
+        "features": [
+          "Bilingual Support (Thai/English) with automatic language detection",
+          "Internationalization (i18n) with custom dictionary system",
+          "Language Switcher with cookie-based preference storage",
+          "Cloudflare Pages deployment with Edge Functions",
+          "Survey System for event registration and feedback",
+          "Backend API for data management and processing",
+          "Responsive Design with TailwindCSS 4",
+          "TypeScript for type safety and better development experience"
+        ],
+        "technologies": ["Astro 5", "TypeScript", "TailwindCSS 4", "Cloudflare Pages", "Edge Functions", "pnpm", "i18n"],
+        "repositories": {
+          "frontend": "https://github.com/kmutt-engineering-openhouse/kmutt-engineering-openhouse-2025",
+          "survey": "https://github.com/kmutt-engineering-openhouse/kmutt-engineering-openhouse-2025-survey",
+          "backend": "https://github.com/kmutt-engineering-openhouse/kmutt-engineering-openhouse-2025-backend"
+        }
+      }
     },
     {
       "id": 3,
       "title": "Bangmod Hackathon 2025 - Discord Verification System",
-      "description": "Discord bot and web dashboard using Node.js, Express, React, and PostgreSQL for secure student verification system.",
-      "tags": ["Node.js", "Express", "React", "PostgreSQL", "Discord API"],
-      "github": "https://github.com/tikpoptv/discord-verify"
+      "description": "A comprehensive Discord verification system for Bangmod Hackathon 2025 that helps students verify their identity and join the Discord server safely. Features Discord bot with /verify commands, web dashboard for admins, student management, and analytics tracking.",
+      "tags": ["Node.js", "Express", "TypeScript", "React", "PostgreSQL", "Discord.js", "Docker"],
+      "github": "https://github.com/tikpoptv/BangModHackathon2025-discord-verify",
+      "website": "https://verify.bangmodhackathon.com/",
+      "more": {
+        "title": "About Bangmod Hackathon Discord Verification System",
+        "content": [
+          "A full-stack Discord verification system designed for Bangmod Hackathon 2025 to securely verify student identities and manage Discord server access. The system combines a Discord bot for seamless verification commands with a web dashboard for administrative management.",
+          "Built with modern technologies including TypeScript, React, and PostgreSQL, with Docker support for easy deployment. The system includes comprehensive security features including JWT authentication, password hashing, and role-based access control."
+        ],
+        "features": [
+          "Discord Bot with /verify command handling",
+          "Web Dashboard for admin management",
+          "Student Management system with team support",
+          "Step-by-step Verification Flow",
+          "Analytics and Usage Statistics tracking",
+          "JWT Authentication with secure token validation",
+          "Role-based Access Control (Admin/Super Admin)",
+          "Docker Support for easy deployment",
+          "PostgreSQL Database with migrations and seeds"
+        ],
+        "technologies": ["Node.js", "Express", "TypeScript", "React", "Vite", "Tailwind CSS", "PostgreSQL", "discord.js", "Docker", "JWT", "bcrypt"]
+      }
     },
     {
       "id": 4,
@@ -79,9 +123,27 @@
     {
       "id": 6,
       "title": "Comcamp35 Event Management System",
-      "description": "Web-based event management system developed in collaboration with a team to improve event operations efficiency.",
-      "tags": ["Web Development", "Team Collaboration", "Event Management"],
-      "github": "https://github.com/tikpoptv/Comcamp35"
+      "description": "ComCamp 35 registration website built with React, TypeScript, and Vite. A web-based event management system developed in collaboration with a team to improve event operations efficiency and streamline registration processes.",
+      "tags": ["React", "TypeScript", "Vite", "SCSS", "Event Management", "Team Collaboration"],
+      "github": "https://github.com/cpe-kmutt-student/comcamp35",
+      "website": "https://comcamp.io/",
+      "more": {
+        "title": "About Comcamp35 Event Management System",
+        "content": [
+          "ComCamp 35 registration website is a comprehensive event management system developed collaboratively by a team to streamline event registration and improve operational efficiency. The system was built using modern web technologies including React, TypeScript, and Vite for optimal performance and developer experience.",
+          "The project was developed as part of the ComCamp 35 event organization, focusing on creating a seamless registration experience for participants while providing efficient management tools for event organizers."
+        ],
+        "features": [
+          "Event Registration System for participants",
+          "Team Collaboration with multiple contributors",
+          "Responsive Web Design with SCSS styling",
+          "TypeScript for type safety and better code quality",
+          "Vite for fast development and optimized builds",
+          "Modern React patterns and best practices",
+          "Event Operations Management tools"
+        ],
+        "technologies": ["React", "TypeScript", "Vite", "SCSS", "ESLint", "Prettier"]
+      }
     },
     {
       "id": 7,
@@ -100,9 +162,29 @@
     {
       "id": 9,
       "title": "Bangmod Hackathon 2025 - Register Website",
-      "description": "Frontend development using Next.js, TypeScript, and Tailwind CSS for event registration system.",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Event Registration"],
-      "github": "https://github.com/tikpoptv/bmhk-2025"
+      "description": "A monorepo registration website for Bangmod Hackathon 2025 built with Next.js, Express.js, and PostgreSQL. Joined the team to help complete the project before the competition deadline by improving frontend UI and implementing missing business logic.",
+      "tags": ["Next.js", "TypeScript", "Express.js", "PostgreSQL", "Turbo", "Monorepo", "Docker"],
+      "github": "https://github.com/beambeambeam/bmhk-2025",
+      "more": {
+        "title": "About Bangmod Hackathon 2025 Register Website",
+        "content": [
+          "A comprehensive monorepo registration system for Bangmod Hackathon 2025, built with modern full-stack technologies. The project uses Turbo monorepo architecture to manage multiple applications and shared packages efficiently.",
+          "This was not my original project, but I joined the team to help complete it before the competition deadline. The team was running behind schedule, so I contributed by improving the frontend UI and implementing missing business logic for critical features. The system includes a Next.js web application for user registration, an Express.js API server for backend operations, and PostgreSQL database for data persistence."
+        ],
+        "features": [
+          "Monorepo Architecture with Turbo for efficient builds",
+          "Next.js Web Application for registration interface",
+          "Express.js API Server for backend operations",
+          "PostgreSQL Database with migrations and schema management",
+          "Shared Packages for authentication, UI components, and database utilities",
+          "Docker Support for development and production environments",
+          "pnpm Workspace for efficient dependency management",
+          "Database Migrations and Schema Generation",
+          "Code Quality Tools (ESLint, Prettier, Commitlint)",
+          "GitHub Actions and GitLab CI for CI/CD"
+        ],
+        "technologies": ["Next.js", "TypeScript", "Express.js", "PostgreSQL", "Turbo", "pnpm", "Docker", "ESLint", "Prettier", "Husky", "Commitlint"]
+      }
     }
   ]
 }
