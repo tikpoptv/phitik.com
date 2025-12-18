@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FaGithub, FaLinkedin, FaTrophy, FaBriefcase, FaGraduationCap, FaCode, FaLaptopCode, FaGlobe, FaServer, FaDatabase, FaTools, FaBrain, FaInfoCircle } from 'react-icons/fa';
 import { SiPython, SiGo, SiC, SiCplusplus, SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiAstro, SiVite, SiSpring, SiExpress, SiNodedotjs, SiPostgresql, SiMongodb, SiMinio, SiAmazonwebservices, SiCloudflare, SiDocker, SiJenkins, SiGithubactions, SiGit, SiTensorflow, SiPytorch } from 'react-icons/si';
 import { Icon } from '@iconify/react';
+import Snowfall from 'react-snowfall';
 import './App.css';
 import config from './config';
 
@@ -427,6 +428,20 @@ function App() {
 
   return (
     <div className="app-wrapper">
+      <Snowfall
+        snowflakeCount={100}
+        speed={[0.5, 1.5]}
+        wind={[-0.5, 0.5]}
+        radius={[0.5, 3]}
+        color="#ffffff"
+        style={{
+          position: 'fixed',
+          width: '100%',
+          height: '100%',
+          pointerEvents: 'none',
+          zIndex: 1000
+        }}
+      />
       <section ref={heroSectionRef} className="hero-section">
         <div className="container">
           <main className="main">
