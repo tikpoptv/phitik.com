@@ -451,6 +451,13 @@ function App() {
               </h1>
             )}
             
+            {config.site.previousName && (
+              <div className="previous-name-container">
+                <span className="previous-name-label">Previously known as</span>
+                <span className="previous-name">{config.site.previousName}</span>
+              </div>
+            )}
+            
             <div className="brand-container">
               <div className="brand">
                 <span className="site-title">{config.site.title}</span>

@@ -2,7 +2,8 @@
 const config = {
   site: {
     title: process.env.REACT_APP_SITE_TITLE || 'Phitik.com',
-    name: process.env.REACT_APP_SITE_NAME || 'Jedsadaporn Pannok',
+    name: process.env.REACT_APP_SITE_NAME || 'Supachok deetaweesukh',
+    previousName: process.env.REACT_APP_PREVIOUS_NAME || 'Jedsadaporn Pannok',
     subtitle: process.env.REACT_APP_SITE_SUBTITLE || 'Developer & Creator',
     bio: process.env.REACT_APP_SITE_BIO || 'Turning ideas into real, usable products from backend systems to user interfaces. Specializing in full-stack development, AI/ML, and scalable software solutions.'
   },
