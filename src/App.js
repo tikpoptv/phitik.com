@@ -456,7 +456,7 @@ function App() {
                 <span className="previous-name-label">Previously known as</span>
                 <span className="previous-name">
                   {config.site.previousName}
-                  {config.site.previousNameTh ? ` (${config.site.previousNameTh})` : ''}
+                  {/* {config.site.previousNameTh ? ` (${config.site.previousNameTh})` : ''} */}
                 </span>
               </div>
             )}

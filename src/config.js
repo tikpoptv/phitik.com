@@ -2,7 +2,7 @@
 const config = {
   site: {
     title: process.env.REACT_APP_SITE_TITLE || 'Phitik.com',
-    name: process.env.REACT_APP_SITE_NAME || 'Supachok deetaweesukh',
+    name: process.env.REACT_APP_SITE_NAME || 'Supachok Deetaweesukh',
     nameTh: process.env.REACT_APP_SITE_NAME_TH || 'ศุภโชค ดีทวีสุข',
     previousName: process.env.REACT_APP_PREVIOUS_NAME || 'Jedsadaporn Pannok',
     previousNameTh: process.env.REACT_APP_PREVIOUS_NAME_TH || 'เจษฎาภรณ์ ปานนอก',
