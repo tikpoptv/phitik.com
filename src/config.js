@@ -16,12 +16,12 @@ const config = {
   },
   proxy: {
     url: process.env.REACT_APP_PROXY_URL || 'https://home.ddns.phitik.com',
-    checkInterval: process.env.REACT_APP_STATUS_CHECK_INTERVAL || 30000 // 30 seconds
+    statusCheckUrl: process.env.REACT_APP_PROXY_STATUS_CHECK_URL || '',
+    checkInterval: process.env.REACT_APP_STATUS_CHECK_INTERVAL || 30000
   },
   status: {
-    checkInterval: process.env.REACT_APP_STATUS_CHECK_INTERVAL || 30000 // 30 seconds
+    checkInterval: process.env.REACT_APP_STATUS_CHECK_INTERVAL || 30000
   },
-  // Environment info
   isDevelopment: process.env.NODE_ENV === 'development',
   isProduction: process.env.NODE_ENV === 'production'
 };

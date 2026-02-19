@@ -137,36 +137,44 @@ function App() {
 
   useEffect(() => {
     const checkProxyStatus = async () => {
+      const timeoutMs = 8000;
+      const statusCheckUrl = config.proxy.statusCheckUrl;
+
       try {
-        const img = new Image();
-        let statusChecked = false;
-        
-        const timeoutId = setTimeout(() => {
-          if (!statusChecked) {
-            statusChecked = true;
-            setProxyStatus(false);
+        if (statusCheckUrl) {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+          const res = await fetch(statusCheckUrl, {
+            method: 'GET',
+            signal: controller.signal,
+            cache: 'no-cache'
+          });
+          clearTimeout(timeoutId);
+          const data = await res.json().catch(() => ({}));
+          setProxyStatus(data.online === true);
+          if (config.isDevelopment) {
+            console.log('Proxy status (IP+port check):', data.online, data.ip || '');
           }
-        }, 5000); // 5 second timeout
-        
-        img.onload = () => {
-          if (!statusChecked) {
-            statusChecked = true;
-            clearTimeout(timeoutId);
-            setProxyStatus(true);
-          }
-        };
-        
-        img.onerror = () => {
-          if (!statusChecked) {
-            statusChecked = true;
-            clearTimeout(timeoutId);
-            setProxyStatus(false);
-          }
-        };
-        
-        img.src = `${config.proxy.url}/favicon.ico?t=${Date.now()}`;
-      } catch (error) {
-        console.error('Error checking proxy status:', error);
+          return;
+        }
+
+        const proxyUrl = config.proxy.url;
+        const checkUrl = proxyUrl.replace(/^https:\/\//i, 'http://').replace(/\/?$/, '/');
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        await fetch(checkUrl, {
+          method: 'GET',
+          mode: 'no-cors',
+          signal: controller.signal,
+          cache: 'no-cache'
+        });
+        clearTimeout(timeoutId);
+        setProxyStatus(true);
+        if (config.isDevelopment) console.log('Proxy reachable (HTTP):', checkUrl);
+      } catch (err) {
+        if (config.isDevelopment) {
+          console.warn('Proxy check failed:', err?.message || err);
+        }
         setProxyStatus(false);
       }
     };
