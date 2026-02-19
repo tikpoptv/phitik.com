@@ -865,7 +865,7 @@ function App() {
               <h3 className="education-degree">{item.degree}</h3>
               <p className="education-school">{item.school}</p>
               <p className="education-location">{item.location}</p>
-              <p className="education-period">{item.period} · GPAX: {item.gpa}</p>
+              <p className="education-period">{item.period}</p>
             </div>
           ))}
         </div>
