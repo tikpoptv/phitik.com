@@ -139,12 +139,14 @@ function App() {
     const checkProxyStatus = async () => {
       const timeoutMs = 8000;
       const statusCheckUrl = config.proxy.statusCheckUrl;
+      const isHttps = typeof window !== 'undefined' && window.location.protocol === 'https:';
+      const checkUrl = statusCheckUrl || (isHttps && typeof window !== 'undefined' ? `${window.location.origin}/api/proxy-status` : '');
 
       try {
-        if (statusCheckUrl) {
+        if (checkUrl) {
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-          const res = await fetch(statusCheckUrl, {
+          const res = await fetch(checkUrl, {
             method: 'GET',
             signal: controller.signal,
             cache: 'no-cache'
@@ -152,17 +154,14 @@ function App() {
           clearTimeout(timeoutId);
           const data = await res.json().catch(() => ({}));
           setProxyStatus(data.online === true);
-          if (config.isDevelopment) {
-            console.log('Proxy status (IP+port check):', data.online, data.ip || '');
-          }
           return;
         }
 
         const proxyUrl = config.proxy.url;
-        const checkUrl = proxyUrl.replace(/^https:\/\//i, 'http://').replace(/\/?$/, '/');
+        const httpCheckUrl = proxyUrl.replace(/^https:\/\//i, 'http://').replace(/\/?$/, '/');
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-        await fetch(checkUrl, {
+        await fetch(httpCheckUrl, {
           method: 'GET',
           mode: 'no-cors',
           signal: controller.signal,
@@ -170,17 +169,13 @@ function App() {
         });
         clearTimeout(timeoutId);
         setProxyStatus(true);
-        if (config.isDevelopment) console.log('Proxy reachable (HTTP):', checkUrl);
       } catch (err) {
-        if (config.isDevelopment) {
-          console.warn('Proxy check failed:', err?.message || err);
-        }
         setProxyStatus(false);
       }
     };
 
-    checkProxyStatus();
-    const intervalId = setInterval(checkProxyStatus, config.proxy.checkInterval);
+    checkProxyStatus().catch(() => setProxyStatus(false));
+    const intervalId = setInterval(() => checkProxyStatus().catch(() => setProxyStatus(false)), config.proxy.checkInterval);
 
     return () => {
       clearInterval(intervalId);
