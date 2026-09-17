@@ -1,111 +1,47 @@
 # Phitik.com
 
-A minimal personal portfolio website built with React.
+Personal portfolio for Supachok Deetaweesukh. The homepage introduces the
+person, experience, and selected work. The plate finder is one project in a
+broader collection, not the identity of the root website.
 
-## 🚀 Quick Start
+The published website is static HTML in `public/`. `src/index.js` is
+intentionally empty; the older React portfolio sources remain in the repository
+for reference but are not rendered. This makes the content readable without
+JavaScript and gives each page a unique URL, title, description, and canonical.
 
-### Local Development
+## Pages
+
+- `/`: personal introduction and selected work
+- `/work/`: curated portfolio with project context and source links
+- `/work/plate-finder/`: original product case study
+- `/about/`: personal history, education, experience, working perspective, contact
+- `/privacy/`: privacy and third-party service disclosure
+
+The plate comparison application itself is a separate project at
+`https://ป้ายไหน.phitik.com/`. This repository does not deploy that app.
+
+## Develop and verify
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm start
-
-# Build for production
+npm ci
+npm run check:pages
 npm run build
+python3 -m http.server 8765 --directory build
 ```
 
-## 🐳 Docker Deployment
+Then open `http://localhost:8765/` and inspect the five pages on desktop and
+mobile. `check:pages` verifies unique titles, descriptions, one H1 per page,
+canonical URLs, internal links, and sitemap entries.
 
-### Using Docker Compose (Recommended)
+## Publishing
 
-```bash
-# Production build and run on port 3002
-docker compose up -d phitik-app
+The root domain currently redirects to `https://www.phitik.com/` on Vercel.
+The canonical URLs and sitemap use that final URL. Netlify and Docker
+configurations are retained as alternate deployment options. Both now serve
+real content files and should return 404 for unknown paths instead of rewriting
+every URL to the homepage.
 
-# Development mode with hot reload on port 3001
-docker compose --profile dev up phitik-dev
-
-# Stop services
-docker compose down
-```
-
-### Using Docker directly
-
-```bash
-# Build the Docker image
-docker build -t phitik-app .
-
-# Run the container on port 3002
-docker run -p 3002:3000 phitik-app
-
-# Run with custom environment variables
-docker build \
-  --build-arg REACT_APP_SITE_TITLE="My Portfolio" \
-  --build-arg REACT_APP_GITHUB_URL="https://github.com/yourusername" \
-  -t phitik-app .
-```
-
-## ⚙️ Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-# Site Configuration
-REACT_APP_SITE_TITLE=Phitik.com
-REACT_APP_SITE_DESCRIPTION=Personal portfolio and development server
-
-# Social Media Links
-REACT_APP_GITHUB_URL=https://github.com/yourusername
-REACT_APP_LINKEDIN_URL=https://linkedin.com/in/yourprofile
-```
-
-All environment variables must be prefixed with `REACT_APP_` to be accessible in the browser.
-
-## 🌐 Deployment Options
-
-### Netlify
-1. Connect your repository to Netlify
-2. Set environment variables in Netlify dashboard
-3. Deploy automatically on push
-
-### Vercel
-1. Connect your repository to Vercel
-2. Add environment variables in Vercel dashboard
-3. Deploy automatically on push
-
-### Docker-based Hosting
-- Railway
-- DigitalOcean App Platform
-- AWS Container Services
-- Google Cloud Run
-
-## 📁 Project Structure
-
-```
-src/
-├── App.js          # Main component
-├── App.css         # Styles
-├── config.js       # Configuration management
-└── index.js        # Entry point
-```
-
-## 🛠️ Available Environment Variables
-
-- `REACT_APP_SITE_TITLE` - Site title (default: "Phitik.com")
-- `REACT_APP_SITE_DESCRIPTION` - Site description (default: "Personal portfolio and development server")
-- `REACT_APP_GITHUB_URL` - Your GitHub profile URL
-- `REACT_APP_LINKEDIN_URL` - Your LinkedIn profile URL
-
-## 🏗️ Architecture
-
-- **Multi-stage Dockerfile** for optimized production builds
-- **Development and Production** environments in Docker Compose
-- **Environment variable support** at build time
-- **Static file serving** with serve package
-
-## 📄 License
-
-MIT License
+No deployment or AdSense review submission happens as part of a local build.
+After publishing, verify the live HTML, all five routes, `/sitemap.xml`,
+`/robots.txt`, `/ads.txt`, and AdSense privacy/consent settings before
+requesting another review. Google's approval is not guaranteed by these changes.

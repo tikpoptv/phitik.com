@@ -1,253 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#3b82f6" />
-  <meta http-equiv="Content-Language" content="th, en" />
-  <meta name="description"
-    content="Supachok Deetaweesukh (ศุภโชค ดีทวีสุข) — Full-stack Developer &amp; VP of AI at RIFFAI, Application Developer at SCB. Previously known as Jedsadaporn Pannok (เจษฎาภรณ์ ปานนอก). Computer Engineering student at KMUTT. Specializing in React, Next.js, Spring Boot, Python, Go, and Machine Learning." />
-  <meta name="keywords"
-    content="Supachok Deetaweesukh, ศุภโชค ดีทวีสุข, Jedsadaporn Pannok, เจษฎาภรณ์ ปานนอก, Phitik, phitik.com, Full-stack developer, นักพัฒนาเว็บ, ฟูลสแตก, React developer, Next.js, Spring Boot, Python, Go, Machine Learning, AI developer, KMUTT, Computer Engineering, SCB developer, RIFFAI, Portfolio, tikpoptv" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://phitik.com/" />
-  <meta property="og:title" content="Supachok deetaweesukh | ศุภโชค ดีทวีสุข (Phitik.com)" />
-  <meta property="og:description"
-    content="Supachok Deetaweesukh (ศุภโชค ดีทวีสุข) — Full-stack Developer &amp; VP of AI. Previously known as Jedsadaporn Pannok. React, Next.js, Spring Boot, Python, Go, ML/AI. KMUTT Computer Engineering. ดูผลงานที่ Phitik.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://phitik.com/" />
-  <meta property="og:image" content="%PUBLIC_URL%/logo192.png" />
-  <meta property="og:locale" content="th_TH" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Supachok deetaweesukh | ศุภโชค ดีทวีสุข" />
-  <meta name="twitter:description"
-    content="Supachok Deetaweesukh (ศุภโชค ดีทวีสุข) — Full-stack Developer &amp; VP of AI. Previously: Jedsadaporn Pannok. React, Spring Boot, Python, Go, ML/AI. KMUTT." />
-  <meta name="twitter:image" content="%PUBLIC_URL%/logo192.png" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="พอร์ตโฟลิโอของศุภโชค ดีทวีสุข นักพัฒนา Full-stack รวมผลงานเว็บแอป ระบบกิจกรรม MUSE Music ป้ายไหน และเรื่องราวการทำงานกับทีมและชุมชน">
+  <meta name="robots" content="index,follow"><link rel="canonical" href="https://www.phitik.com/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/site.css">
+  <meta property="og:type" content="website"><meta property="og:locale" content="th_TH"><meta property="og:title" content="ศุภโชค ดีทวีสุข | Portfolio Phitik"><meta property="og:description" content="รวมงานที่ศุภโชคทำจริง ทั้งเว็บ ระบบหลังบ้าน DevOps งานกิจกรรม และโปรเจกต์ที่ยังพัฒนาต่ออยู่"><meta property="og:url" content="https://www.phitik.com/">
+  <title>ศุภโชค ดีทวีสุข | Portfolio และผลงาน | Phitik</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6223438449729380" crossorigin="anonymous"></script>
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Supachok Deetaweesukh",
-        "alternateName": ["ศุภโชค ดีทวีสุข", "Jedsadaporn Pannok", "เจษฎาภรณ์ ปานนอก"],
-        "url": "https://phitik.com",
-        "image": "https://phitik.com/logo512.png",
-        "jobTitle": "Full-stack Developer & VP of AI",
-        "description": "Full-stack developer specializing in building modern web applications, AI/ML systems, and scalable software solutions. Previously known as Jedsadaporn Pannok (เจษฎาภรณ์ ปานนอก).",
-        "knowsAbout": ["Full-stack Development", "React.js", "Next.js", "Node.js", "Python", "Go", "Java Spring Boot", "Machine Learning", "TensorFlow", "PyTorch", "Docker", "AWS", "Azure", "CI/CD"],
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "King Mongkut's University of Technology Thonburi",
-          "sameAs": "https://www.kmutt.ac.th"
-        },
-        "worksFor": [
-          {
-            "@type": "Organization",
-            "name": "RIFFAI",
-            "description": "Product Development Engineer / VP of AI"
-          },
-          {
-            "@type": "Organization",
-            "name": "SCB - Siam Commercial Bank",
-            "description": "Application Developer"
-          }
-        ],
-        "hasOccupation": {
-          "@type": "Occupation",
-          "name": "Full-stack Developer",
-          "description": "Turning ideas into real, usable products from backend systems to user interfaces. Specializing in full-stack development, AI/ML, and scalable software solutions."
-        },
-        "award": [
-          "Startup Thailand League 2025 - Top 5 Eastern-Central Region",
-          "Startup Thailand League 2024 - Demo Day & National Funding",
-          "HATCH KMUTT GEN8 - Project Funding Support",
-          "HackaTHAILAND 2023 - Head of Product Development Team"
-        ],
-        "sameAs": [
-          "https://github.com/tikpoptv",
-          "https://www.linkedin.com/in/jedsadaporn-pannok"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Phitik.com",
-        "url": "https://phitik.com",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://phitik.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "mainEntity": {
-          "@type": "Person",
-          "name": "Supachok Deetaweesukh",
-          "alternateName": ["Jedsadaporn Pannok", "เจษฎาภรณ์ ปานนอก", "ศุภโชค ดีทวีสุข"]
-        }
-      }
-    ]
-    </script>
-  <title>Supachok deetaweesukh | ศุภโชค ดีทวีสุข | Phitik.com</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Supachok Deetaweesukh","alternateName":["ศุภโชค ดีทวีสุข","Jedsadaporn Pannok"],"url":"https://www.phitik.com/","sameAs":["https://github.com/tikpoptv","https://www.linkedin.com/in/jedsadaporn-pannok"]}</script>
 </head>
-
 <body>
-  <noscript>
-    <style>
-      body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem; color: #1e293b; background: #0f172a; color: #e2e8f0; }
-      h1 { font-size: 2.5rem; color: #3b82f6; margin-bottom: 0.25rem; }
-      h2 { font-size: 1.5rem; color: #60a5fa; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; margin-top: 2rem; }
-      h3 { color: #93c5fd; margin-bottom: 0.25rem; }
-      p, li { color: #cbd5e1; line-height: 1.6; }
-      a { color: #3b82f6; }
-      .section { margin-bottom: 2rem; }
-      .tag { display: inline-block; background: #1e3a5f; color: #93c5fd; padding: 2px 8px; border-radius: 4px; margin: 2px; font-size: 0.85rem; }
-      .item { border-left: 3px solid #3b82f6; padding-left: 1rem; margin-bottom: 1.5rem; }
-      .meta { color: #64748b; font-size: 0.9rem; }
-    </style>
-    <div class="section">
-      <h1>Supachok Deetaweesukh (ศุภโชค ดีทวีสุข)</h1>
-      <p><em>Previously known as: Jedsadaporn Pannok (เจษฎาภรณ์ ปานนอก)</em></p>
-      <p>Full-stack Developer &amp; Creator at <strong>Phitik.com</strong></p>
-      <p>Turning ideas into real, usable products — from backend systems to user interfaces. Specializing in full-stack development, AI/ML, and scalable software solutions.</p>
-      <p>
-        <a href="https://github.com/tikpoptv" rel="noopener noreferrer">GitHub</a> &nbsp;|&nbsp;
-        <a href="https://www.linkedin.com/in/jedsadaporn-pannok" rel="noopener noreferrer">LinkedIn</a>
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Experience</h2>
-
-      <div class="item">
-        <h3>Product Development Engineer / VP of AI — RIFFAI</h3>
-        <p class="meta">July 2024 – Present · Remote</p>
-        <ul>
-          <li>Developed and optimized RNN, LSTM, and CNN models for time-series forecasting and image recognition</li>
-          <li>Built and deployed full-stack products using React, Next.js, Express.js, MinIO, and Azure Cloud</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <h3>Application Developer — SCB (Siam Commercial Bank)</h3>
-        <p class="meta">October 2024 – Present · Hybrid</p>
-        <ul>
-          <li>Developed backend web applications using Java Spring Boot for efficient data processing and API integration</li>
-          <li>Automated Excel-to-SQL data transformation for optimized internal data management</li>
-          <li>Contributed to frontend modules with React.js, Next.js, TypeScript, and Tailwind CSS</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <h3>Teaching Assistant — Department of Computer Engineering, KMUTT</h3>
-        <p class="meta">Aug 2025 – Present · On-site</p>
-        <ul>
-          <li>1/2025 Teaching Assistant: User Experience / User Interface</li>
-          <li>2/2025 Teaching Assistant: Database Systems</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <h3>IT Support Technician — DEETAWEE Accounting &amp; Law Co., Ltd.</h3>
-        <p class="meta">Jan 2023 – Present · Remote / On-site</p>
-        <ul>
-          <li>Managed and maintained company's IT infrastructure, including LAN network, NAS storage, and internal file-sharing systems</li>
-          <li>Provided hardware/software troubleshooting and preventive maintenance</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Education</h2>
-      <div class="item">
-        <h3>Bachelor of Engineering in Computer Engineering</h3>
-        <p>King Mongkut's University of Technology Thonburi (KMUTT)</p>
-        <p class="meta">Bangkok, Thailand · 2023 – Present</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Skills &amp; Proficiencies</h2>
-      <p><strong>Programming Languages:</strong>
-        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Go</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">C#</span>
-      </p>
-      <p><strong>Web Development:</strong>
-        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">Tailwind CSS</span><span class="tag">Astro</span><span class="tag">Vite</span>
-      </p>
-      <p><strong>Backend Frameworks:</strong>
-        <span class="tag">Spring Boot</span><span class="tag">Express.js</span><span class="tag">Go (Golang)</span><span class="tag">Node.js</span>
-      </p>
-      <p><strong>Database &amp; Cloud:</strong>
-        <span class="tag">SQL</span><span class="tag">MongoDB</span><span class="tag">MinIO</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Cloudflare Pages</span>
-      </p>
-      <p><strong>DevOps &amp; Tools:</strong>
-        <span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">REST APIs</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">GitHub</span>
-      </p>
-      <p><strong>Machine Learning &amp; AI:</strong>
-        <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">LSTM</span><span class="tag">CNN</span><span class="tag">RNN</span>
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Competitions &amp; Awards</h2>
-
-      <div class="item">
-        <h3>Startup Thailand League 2025</h3>
-        <p class="meta">Product Development Team Member — RIFFAI LRAS · Apr – Jul 2025</p>
-        <p>Selected as one of the Top 5 teams from the Eastern–Central region. Developed ML-powered tool using RNN for insurance companies.</p>
-      </div>
-
-      <div class="item">
-        <h3>Startup Thailand League 2024</h3>
-        <p class="meta">Product Development Team Member — Team HATCH แตhเกิด · Apr 30 – Jun 27, 2024</p>
-        <p>Advanced to Demo Day round and received national-level funding.</p>
-      </div>
-
-      <div class="item">
-        <h3>HATCH KMUTT GEN8</h3>
-        <p class="meta">Product Development Team Member — Team HATCH แตhเกิด · Dec 19, 2023 – Apr 28, 2024</p>
-        <p>Received project funding support from KMUTT.</p>
-      </div>
-
-      <div class="item">
-        <h3>HackaTHAILAND 2023 Roadshow – 1st Event</h3>
-        <p class="meta">Head of the Product Development Team — Team Certash · January 30, 2023</p>
-        <p>Led product design and development; presented innovative tech solutions to judges.</p>
-      </div>
-    </div>
-  </noscript>
-  <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+  <a class="skip-link" href="#content">ข้ามไปยังเนื้อหา</a>
+  <header class="site-header"><div class="shell nav-row"><a class="wordmark" href="/" aria-label="Phitik หน้าแรก"><span class="wordmark-symbol" aria-hidden="true">P.</span><span>phitik<span class="wordmark-dot">.</span></span></a><nav aria-label="เมนูหลัก"><a class="current" aria-current="page" href="/">หน้าแรก</a><a href="/work/">ผลงาน</a><a href="/about/">เรื่องราว</a></nav><a class="nav-cta" href="https://github.com/tikpoptv" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></header>
+  <main id="content">
+    <section class="hero shell personal-hero">
+      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span> SUPACHOK / PORTFOLIO</p><h1>สวัสดีครับ<br>ผม <em>ศุภโชค</em><span class="hero-period">.</span></h1><p class="hero-lede">ผมเป็น Full-stack Developer ที่ชอบลองทำของจริง มีทั้งเว็บ ระบบหลังบ้าน งาน DevOps และโปรเจกต์ที่เริ่มจากคำว่า “ถ้ามีแบบนี้ก็น่าจะดีนะ” เว็บนี้เลยเป็นที่รวมงานที่ผมทำไว้ครับ</p><div class="button-row"><a class="button button-primary" href="/work/">ดูว่าผมทำอะไรบ้าง <span aria-hidden="true">→</span></a><a class="button button-outline" href="/about/">อ่านเรื่องของผม <span aria-hidden="true">→</span></a></div><p class="microcopy">Web applications · Product engineering · DevOps</p></div>
+      <div class="hero-art portfolio-art" aria-label="ภาพกราฟิกแสดงงานพัฒนาเว็บ ดนตรี และกิจกรรม"><div class="portfolio-art-grid" aria-hidden="true"><div class="portfolio-tile tile-muse"><span>01 / MUSIC PLATFORM</span><strong>MUSE<br>Music<span class="tile-dot">.</span></strong><small>Discover · Listen · Understand</small></div><div class="portfolio-tile tile-event"><span>02 / EVENT WEB</span><strong>OPEN<br>HOUSE</strong><small>TH / EN · KMUTT</small></div><div class="portfolio-tile tile-build"><span>03 / BUILD & LEARN</span><strong>&lt;/&gt;</strong><small>Ideas into products</small></div></div><div class="portfolio-art-caption">A COLLECTION OF THINGS I’VE BUILT <span aria-hidden="true">↗</span></div></div>
+    </section>
+    <div class="marquee-strip" aria-hidden="true"><div class="shell">ชอบลองของใหม่ <span>✳</span> แก้ปัญหาให้จบ <span>✳</span> ทำงานกับคนได้จริง</div></div>
+    <section class="section shell" id="work"><div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2>งานที่อยาก<br><span class="h2-light">หยิบมาเล่า</span></h2></div><p>มีทั้งของที่ทำเอง งานที่ทำกับทีม และระบบที่ต้องใช้จริง บางชิ้นเรียบร้อยแล้ว บางชิ้นยังเปิดมาแก้อยู่เรื่อย ๆ ตามสไตล์คนทำเว็บครับ</p></div><div class="work-grid">
+      <article class="work-card"><div class="work-card-head"><span>PRODUCT · MUSIC</span><span aria-hidden="true">↗</span></div><h3>MUSE Music</h3><p>เว็บเพลงที่รวมการค้นพบเพลง การแปลและวิเคราะห์เนื้อเพลงด้วย AI รวมถึงรายการโปรดและประวัติการฟัง</p><a href="/work/#muse">อ่านเกี่ยวกับโปรเจกต์ <span aria-hidden="true">→</span></a></article>
+      <article class="work-card"><div class="work-card-head"><span>TEAM · EVENT</span><span aria-hidden="true">↗</span></div><h3>KMUTT Engineering Open House</h3><p>เว็บไซต์งานเปิดบ้านคณะวิศวกรรมศาสตร์สองภาษา พัฒนาร่วมกับทีมเพื่อรองรับผู้เข้าชมทั้งภาษาไทยและอังกฤษ</p><a href="/work/#open-house">อ่านเกี่ยวกับโปรเจกต์ <span aria-hidden="true">→</span></a></article>
+      <article class="work-card"><div class="work-card-head"><span>COMMUNITY · SYSTEM</span><span aria-hidden="true">↗</span></div><h3>Hackathon Verification</h3><p>ระบบยืนยันตัวตนผู้เข้าร่วมก่อนเข้า Discord พร้อมบอตและหน้าจัดการสำหรับทีมผู้ดูแลกิจกรรม</p><a href="/work/#verification">อ่านเกี่ยวกับโปรเจกต์ <span aria-hidden="true">→</span></a></article>
+    </div><a class="text-link" href="/work/">ดูผลงานทั้งหมด <span aria-hidden="true">↗</span></a></section>
+    <section class="section section-ink"><div class="shell split-story"><div><p class="eyebrow eyebrow-light">02 / MY STORY</p><h2>เรียนไป<br>ทำงานไป<br><em>สร้างของไปด้วย</em></h2></div><div class="story-copy"><p>ตอนนี้ผมเรียนวิศวกรรมคอมพิวเตอร์ที่ KMUTT พร้อมกับทำงานหลายบทบาท ทั้ง Application Developer, DevOps Engineer, CTO และผู้ช่วยสอน ฟังดูเยอะครับ เพราะมันเยอะจริง 555</p><p>ข้อดีคือผมได้เห็นตั้งแต่ตอนคุยโจทย์ เขียนโค้ด ดูระบบ ไปจนถึงตอนคนใช้ติดปัญหา เลยไม่ค่อยมองว่างานจบแค่ตอนโปรแกรมรันได้</p><a class="text-link text-link-light" href="/about/">ดูว่าผมผ่านอะไรมาบ้าง <span aria-hidden="true">↗</span></a></div></div></section>
+    <section class="section shell"><div class="section-heading"><div><p class="eyebrow">03 / A LITTLE MORE</p><h2>ไม่ได้ทำแค่<br><span class="h2-light">เว็บสวย ๆ</span></h2></div><p>ผมชอบงานที่ต้องคิดทั้งหน้าบ้าน หลังบ้าน ข้อมูล และคนใช้ บางงานเป็นโปรเจกต์จริงจัง บางงานเริ่มจากความอยากรู้แล้วทำยาวกว่าที่คิด</p></div><div class="feature-grid"><article class="feature-card"><span class="feature-index">01 / PRODUCT</span><h3>ป้ายไหน</h3><p>ตอนหาเลขทะเบียนแล้วต้องเปิดหลายเว็บ ผมเลยทำเว็บรวมให้ค้นและเทียบง่ายขึ้น แต่ยังพากลับไปหาร้านต้นทางได้ทุกครั้ง</p><a class="text-link" href="/work/plate-finder/">อ่านว่าทำมายังไง <span aria-hidden="true">↗</span></a></article><article class="feature-card"><span class="feature-index">02 / FULL-STACK</span><h3>Airline Management</h3><p>ระบบจัดการเที่ยวบินและการจองที่ผมใช้ฝึกเชื่อม React, API ภาษา Go และ PostgreSQL ให้ทำงานด้วยกันทั้งชุด</p><a class="text-link" href="/work/#airline">ดูรายละเอียด <span aria-hidden="true">↗</span></a></article><article class="feature-card"><span class="feature-index">03 / TEAM</span><h3>ComCamp 35</h3><p>เว็บลงทะเบียนที่ทำกับทีม มีทั้งหน้าสมัครและระบบแจ้งเตือน ช่วงนั้นได้ฝึกทำงานกับเดดไลน์จริงแบบเต็ม ๆ</p><a class="text-link" href="/work/#comcamp">ดูรายละเอียด <span aria-hidden="true">↗</span></a></article></div></section>
+    <section class="section shell question-band"><div><p class="eyebrow">LET’S CONNECT</p><h2>มีอะไรน่าทำ<br>ทักมาคุยกันครับ</h2></div><div><p>จะคุยเรื่องเว็บ ระบบ DevOps โปรเจกต์ใหม่ หรือแค่อยากแลกเปลี่ยนไอเดียก็ได้ งานที่เปิดสาธารณะส่วนใหญ่อยู่บน GitHub ครับ</p><a class="button button-dark" href="https://github.com/tikpoptv" target="_blank" rel="noopener noreferrer">เปิด GitHub <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-top"><div><a class="wordmark footer-mark" href="/"><span class="wordmark-symbol" aria-hidden="true">P.</span><span>phitik<span class="wordmark-dot">.</span></span></a><p>รวมงานที่ผมทำ เรื่องที่เคยพัง<br>และสิ่งที่ได้เรียนรู้ระหว่างทาง</p></div><nav aria-label="ข้อมูลเว็บไซต์"><a href="/work/">ผลงานทั้งหมด</a><a href="/about/">ประวัติและเรื่องราว</a><a href="/privacy/">ความเป็นส่วนตัว</a></nav></div><div class="shell footer-bottom"><span>© 2026 Phitik.com</span><span>ทำเอง แก้เอง และยังปรับอยู่เรื่อย ๆ</span></div></footer>
 </body>
-
 </html>

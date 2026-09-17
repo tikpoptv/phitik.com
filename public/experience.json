@@ -2,43 +2,54 @@
   "items": [
     {
       "id": 1,
-      "title": "Product Development Engineer / VP of AI",
-      "company": "RIFFAI",
-      "period": "July 2024 – Present",
-      "location": "Remote",
+      "title": "Application Developer",
+      "company": "SCB (Siam Commercial Bank)",
+      "period": "October 2024 to Present",
+      "location": "Hybrid",
       "details": [
-        "Developed and optimized RNN, LSTM, and CNN models for time-series forecasting and image recognition",
-        "Built and deployed full-stack products using React, Next.js, Express.js, MinIO, and Azure Cloud"
+        "Part-time from October 2024 to June 2026, internship from June to July 2026, and part-time again from August 2026",
+        "Developed backend applications using Java Spring Boot, automated Excel-to-database workflows, and contributed to React, Next.js, and TypeScript frontend modules"
       ]
     },
     {
       "id": 2,
-      "title": "Application Developer",
-      "company": "SCB - Siam Commercial Bank",
-      "period": "October 2024 – Present",
-      "location": "Hybrid",
+      "title": "DevOps Engineer",
+      "company": "RIFFAI",
+      "period": "July 2024 to Present",
+      "location": "Remote",
       "details": [
-        "Developed backend web applications using Java Spring Boot for efficient data processing and API integration",
-        "Automated Excel-to-SQL data transformation for optimized internal data management",
-        "Contributed to frontend modules with React.js, Next.js, TypeScript, and Tailwind CSS"
+        "DevOps Engineer since June 2026",
+        "Product Development Engineer from August 2025 to July 2026",
+        "Vice President of Artificial Intelligence from July 2024 to August 2025"
       ]
     },
     {
       "id": 3,
-      "title": "Teaching Assistant",
-      "company": "Department of Computer Engineering, KMUTT",
-      "period": "Aug 2025 – Present",
-      "location": "On-site",
+      "title": "Co-Founder & CTO",
+      "company": "HexaScale Solutions",
+      "period": "January 2026 to Present",
+      "location": "Hybrid",
       "details": [
-        "1/2025 Teaching Assistant : USER EXPERIENCE/USER INTERFACE",
-        "2/2025 Teaching Assistant : DATABASE SYSTEMS"
+        "Leads technical direction, system architecture, development practices, and product delivery"
       ]
     },
     {
       "id": 4,
+      "title": "Teaching Assistant",
+      "company": "Department of Computer Engineering, KMUTT",
+      "period": "August 2025 to December 2026",
+      "location": "On-site",
+      "details": [
+        "1/2025 Teaching Assistant : USER EXPERIENCE/USER INTERFACE",
+        "2/2025 Teaching Assistant : DATABASE SYSTEMS",
+        "1/2026 Teaching Assistant : SOFTWARE ENGINEERING"
+      ]
+    },
+    {
+      "id": 5,
       "title": "IT Support Technician",
       "company": "DEETAWEE Accounting & Law Co., Ltd.",
-      "period": "Jan 2023 – Present",
+      "period": "Jan 2023 to Present",
       "location": "Remote / On-site",
       "details": [
         "Managed and maintained company's IT infrastructure, including LAN network, NAS storage, and internal file-sharing systems",
@@ -47,4 +58,3 @@
     }
   ]
 }
-

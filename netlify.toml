@@ -5,11 +5,8 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirect all requests to index.html for SPA
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Content pages are real HTML files. Unknown URLs should return 404,
+# not the home page (which previously looked like a thin duplicate page).
 
 # Environment variables for production (set these in Netlify dashboard)
 # REACT_APP_GITHUB_URL=https://github.com/yourusername

@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://phitik.com/sitemap.xml
+Sitemap: https://www.phitik.com/sitemap.xml
