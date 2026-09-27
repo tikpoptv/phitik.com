@@ -6,6 +6,9 @@ const pages = [
   '',
   'work/',
   'work/plate-finder/',
+  'work/muse-music/',
+  'work/open-house/',
+  'work/hackathon-verification/',
   'about/',
   'privacy/'
 ];

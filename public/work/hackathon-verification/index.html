@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="เบื้องหลัง Bangmod Hackathon Discord Verification โปรเจกต์ระบบยืนยันตัวตนที่เชื่อมบอต Discord ฟอร์มผู้เข้าร่วม และแดชบอร์ดทีมงาน พร้อมข้อจำกัดด้านความปลอดภัย">
+  <meta name="robots" content="index,follow"><link rel="canonical" href="https://www.phitik.com/work/hackathon-verification/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/site.css">
+  <title>เบื้องหลังระบบยืนยันตัวตน Bangmod Hackathon | Phitik</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6223438449729380" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">ข้ามไปยังเนื้อหา</a>
+  <header class="site-header"><div class="shell nav-row"><a class="wordmark" href="/"><span class="wordmark-symbol" aria-hidden="true">P.</span><span>phitik<span class="wordmark-dot">.</span></span></a><nav aria-label="เมนูหลัก"><a href="/">หน้าแรก</a><a class="current" aria-current="page" href="/work/">ผลงาน</a><a href="/about/">เรื่องราว</a></nav><a class="nav-cta" href="https://github.com/tikpoptv" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></header>
+  <main id="content">
+    <section class="page-hero shell"><p class="eyebrow">CASE STUDY / HACKATHON</p><h1>คนเข้าห้อง Discord ได้<br><em>แต่ทีมงานต้องรู้ว่าใครเป็นใคร</em></h1><p>Bangmod Hackathon Verification เป็นโปรเจกต์ที่เชื่อมคำสั่งใน Discord เข้ากับฟอร์มและหน้าตรวจของทีมงาน เพื่อให้การยืนยันตัวตนมีขั้นตอนและมีสถานะให้ตามต่อ ไม่ต้องไล่ถามกันในแชตอย่างเดียวครับ</p></section>
+    <div class="article-layout shell"><article class="article-copy">
+      <h2 id="problem">ปัญหาของการตรวจด้วยมือ</h2>
+      <p>ถ้าผู้เข้าร่วมทุกคนต้องส่งข้อมูลในแชต แล้วทีมงานค่อยเช็กทีละคน เรื่องที่หลุดง่ายคือใครส่งแล้ว ใครยังขาดข้อมูล และใครผ่านการตรวจ ระบบนี้จึงแยกทางเดินของผู้เข้าร่วมกับทีมงานให้ชัดขึ้น โดยยังให้คนเป็นผู้ตัดสินผลอนุมัติ</p>
+      <h2 id="flow">หนึ่งคำสั่ง แต่มีหลายขั้นตอนต่อ</h2>
+      <ol><li>ผู้เข้าร่วมใช้คำสั่ง <strong>/verify</strong> ใน Discord เพื่อรับทางไปกรอกข้อมูล</li><li>กรอกข้อมูลที่ระบบใช้จับคู่กับผู้เข้าร่วมและทีม</li><li>ทีมงานตรวจรายการรอพิจารณาในแดชบอร์ด แล้วอนุมัติหรือปฏิเสธ</li><li>ระบบเก็บสถานะการยืนยันไว้ให้ติดตาม ไม่ต้องเริ่มถามใหม่ทุกครั้ง</li></ol>
+      <p>ตัวโปรเจกต์แยกบอต หน้าเว็บ API และฐานข้อมูล PostgreSQL จึงมีจุดเชื่อมหลายจุดที่ต้องคิดให้ตรงกัน ทั้งรหัสผู้ใช้ Discord ข้อมูลที่กรอก และสิทธิทีมงาน ในซอร์สมีตารางสำหรับผู้ใช้ นักเรียน โรงเรียน ทีม ผู้ดูแล และบันทึกการยืนยัน</p>
+      <h2 id="decisions">สิ่งที่ออกแบบเผื่อทีมงาน</h2>
+      <div class="fact-grid"><div><b>คนเข้าร่วมเห็นทางถัดไป</b><p>เริ่มจาก Discord ซึ่งเป็นที่ที่เขาอยู่แล้ว ก่อนพาไปฟอร์มแทนการให้ส่งข้อมูลกระจัดกระจายในแชต</p></div><div><b>ทีมงานมีคิวตรวจ</b><p>รายการรออนุมัติอยู่ในแดชบอร์ดเดียว ช่วยแยกงานตรวจจากการคุยในห้องสาธารณะ</p></div><div><b>สถานะตรวจสอบได้</b><p>การอนุมัติและปฏิเสธเป็นสถานะของระบบ ไม่ใช่จำจากข้อความเก่า</p></div><div><b>โค้ดเปิดให้ตรวจ</b><p>repository มี README และโครงสร้าง frontend, backend, database และ Docker สำหรับลองรันด้วยตัวเอง</p></div></div>
+      <h2 id="limits">โปรเจกต์นี้ยังไม่ใช่คำรับรองความปลอดภัย</h2>
+      <p>README ของโปรเจกต์ระบุเองว่ายังเป็นงานที่พัฒนาต่อและมีสิ่งต้องปรับก่อนใช้จริงเต็มรูปแบบ เช่น rate limiting บาง endpoint, security headers และการเปลี่ยนค่าตัวอย่างใน environment ผมอยากให้หน้านี้บอกขอบเขตตามจริง มากกว่าพูดว่าระบบปลอดภัยสมบูรณ์แล้ว</p>
+      <div class="note-box"><p><strong>สิ่งที่ได้จากงานนี้:</strong> ระบบยืนยันตัวตนไม่ได้จบที่ฟอร์มสวย ๆ ต้องออกแบบการไหลของข้อมูลระหว่างบอต เว็บ และคนตรวจให้สอดคล้องกัน พร้อมทำรายการความเสี่ยงที่ยังค้างให้เห็นครับ</p></div>
+      <div class="page-cta"><h2>ดูโค้ดและข้อจำกัดจริง</h2><p>README ของโปรเจกต์มีทั้งวิธีรัน ลำดับการใช้งาน และรายการที่ยังควรปรับปรุง</p><a class="button button-primary" href="https://github.com/tikpoptv/BangModHackathon2025-discord-verify" target="_blank" rel="noopener noreferrer">เปิด repository <span aria-hidden="true">↗</span></a></div>
+    </article><aside class="article-aside" aria-label="สารบัญ"><strong>ในหน้านี้</strong><a href="#problem">ปัญหาที่แก้</a><a href="#flow">ลำดับการยืนยัน</a><a href="#decisions">การออกแบบทีมงาน</a><a href="#limits">ข้อจำกัดที่ยังมี</a><p>กรณีศึกษาโปรเจกต์ ไม่ใช่บริการยืนยันตัวตนที่เปิดให้ใช้งานทั่วไป</p></aside></div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-top"><div><a class="wordmark footer-mark" href="/"><span class="wordmark-symbol" aria-hidden="true">P.</span><span>phitik<span class="wordmark-dot">.</span></span></a><p>รวมงานที่ผมทำ เรื่องที่เคยพัง<br>และสิ่งที่ได้เรียนรู้ระหว่างทาง</p></div><nav aria-label="ข้อมูลเว็บไซต์"><a href="/work/">ผลงานทั้งหมด</a><a href="/about/">ประวัติและเรื่องราว</a><a href="/privacy/">ความเป็นส่วนตัว</a></nav></div><div class="shell footer-bottom"><span>© 2026 Phitik.com</span><span>ทำเอง แก้เอง และยังปรับอยู่เรื่อย ๆ</span></div></footer>
+</body>
+</html>

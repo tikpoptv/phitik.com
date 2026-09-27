@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="เบื้องหลัง MUSE Music โปรเจกต์เว็บเพลงของศุภโชค ดีทวีสุข ที่เชื่อมการค้นหาเพลง เนื้อเพลง การแปลและสรุปด้วย AI เข้ากับประวัติการฟังและระบบผู้ใช้">
+  <meta name="robots" content="index,follow"><link rel="canonical" href="https://www.phitik.com/work/muse-music/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/site.css">
+  <title>เบื้องหลัง MUSE Music: จากเว็บฟังเพลงสู่ระบบที่เข้าใจเพลง | Phitik</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6223438449729380" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">ข้ามไปยังเนื้อหา</a>
+  <header class="site-header"><div class="shell nav-row"><a class="wordmark" href="/"><span class="wordmark-symbol" aria-hidden="true">P.</span><span>phitik<span class="wordmark-dot">.</span></span></a><nav aria-label="เมนูหลัก"><a href="/">หน้าแรก</a><a class="current" aria-current="page" href="/work/">ผลงาน</a><a href="/about/">เรื่องราว</a></nav><a class="nav-cta" href="https://github.com/tikpoptv" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></header>
+  <main id="content">
+    <section class="page-hero shell"><p class="eyebrow">CASE STUDY / MUSE MUSIC</p><h1>กดฟังเพลงได้แล้ว<br><em>แต่ผมยังอยากรู้จักมันมากกว่านั้น</em></h1><p>MUSE Music เป็นโปรเจกต์ที่ผมลองพาเพลงออกจากแค่ช่องค้นหาและปุ่มเล่น ไปถึงเนื้อเพลง ความหมาย ความรู้สึก และเพลงที่เราเคยกลับไปฟังครับ</p></section>
+    <div class="article-layout shell"><article class="article-copy">
+      <h2 id="problem">โจทย์ที่ผมตั้งให้ตัวเอง</h2>
+      <p>เวลาฟังเพลงต่างภาษา ผมมักอยากอ่านเนื้อเพลงไปด้วยและรู้ว่าเพลงกำลังเล่าอะไร แต่ข้อมูลเหล่านี้กระจายอยู่หลายที่ MUSE เลยเริ่มจากคำถามว่า ถ้าอยู่ในที่เดียวกัน เราจะค้นเพลง เล่นเพลง อ่านเนื้อ และดูคำอธิบายได้ต่อเนื่องแค่ไหน</p>
+      <p>ผมไม่ได้ทำบริการสตรีมมิงใหม่ เพลงและวิดีโออาศัยแหล่งภายนอก ส่วน MUSE เป็นชั้นประสบการณ์ที่ช่วยค้น จัดเก็บ และตีความครับ</p>
+      <h2 id="flow">จากค้นเพลงถึงกลับมาฟังซ้ำ</h2>
+      <div class="fact-grid"><div><b>ค้นและฟัง</b><p>ค้นเพลงผ่านการเชื่อมกับ YouTube แล้วเปิดหน้าเล่นโดยไม่ต้องย้ายไปมาระหว่างหน้าค้นหาและรายละเอียด</p></div><div><b>อ่านเนื้อเพลง</b><p>ดึงเนื้อเพลงจาก LRCLIB และมีทางใช้ transcript เมื่อข้อมูลเนื้อเพลงไม่พร้อม ข้อมูลจากแหล่งภายนอกจึงอาจไม่ครบทุกเพลง</p></div><div><b>ลองเข้าใจเพลง</b><p>เพิ่มการแปล วิเคราะห์อารมณ์ และสรุปด้วย AI เพื่อเป็นอีกมุมช่วยอ่าน ไม่ใช่คำแปลหรือความหมายที่ศิลปินรับรอง</p></div><div><b>จำสิ่งที่ชอบ</b><p>มีรายการโปรด ประวัติ และการตั้งค่าผู้ใช้ เพื่อกลับไปหาเพลงเดิมได้โดยไม่เริ่มใหม่ทุกครั้ง</p></div></div>
+      <h2 id="engineering">งานเบื้องหลังที่ไม่ได้เห็นบนหน้าเล่น</h2>
+      <p>ฝั่งหน้าบ้านใช้ Next.js และ TypeScript ส่วน API ใช้ Express.js กับ PostgreSQL จัดการข้อมูลผู้ใช้และเพลง ไฟล์ภาพอยู่ใน MinIO โปรเจกต์ยังมีการยืนยันตัวตนด้วย JWT, Google OAuth และตัวเลือกยืนยันสองขั้นตอน งานนี้ทำให้ผมต้องคิดเรื่องข้อมูลกับสิทธิผู้ใช้พร้อมกับหน้าตาเว็บ ไม่ใช่แค่ทำหน้าฟังเพลงให้เสร็จ</p>
+      <p>ในซอร์สมีโครงสร้างแยก frontend, backend, migration ฐานข้อมูล และชุดทดสอบไว้ชัดเจน ใครอยากดูว่าแต่ละส่วนต่อกันอย่างไร เปิดโค้ดได้เลยครับ ผมตั้งใจให้หน้านี้เล่าเหตุผลและข้อจำกัด ส่วนรายละเอียดระดับไฟล์อยู่ใน repository</p>
+      <h2 id="limits">สิ่งที่ยังต้องระวัง</h2>
+      <p>การหาเนื้อเพลงหรือ transcript ขึ้นกับความพร้อมของแหล่งต้นทาง และผล AI อาจตีความเพลงผิดได้ ผมจึงมองส่วนวิเคราะห์เป็นเครื่องมือช่วยสำรวจ ไม่ใช่ข้อเท็จจริงตายตัว อีกอย่างคือเว็บที่มีผู้ใช้และไฟล์หลายประเภทต้องดูเรื่องสิทธิการเข้าถึงและการดูแลข้อมูลต่อเนื่องเสมอ</p>
+      <div class="note-box"><p><strong>บทเรียนของงานนี้:</strong> การทำให้ฟีเจอร์จำนวนมากอยู่ในเว็บเดียวกันยากกว่าการทำฟีเจอร์แต่ละอันแยกกัน จุดที่ต้องระวังคือการไหลของข้อมูลและการบอกผู้ใช้ว่าอะไรเป็นข้อมูลต้นทาง อะไรเป็นผลจาก AI</p></div>
+      <div class="page-cta"><h2>ดูตัวโปรเจกต์</h2><p>ดูซอร์สและเอกสารประกอบก่อน หรือทดลองหน้าเว็บหากบริการยังเปิดอยู่ครับ</p><a class="button button-primary" href="https://github.com/tikpoptv/MUSE-MUSIC" target="_blank" rel="noopener noreferrer">เปิดซอร์สโค้ด <span aria-hidden="true">↗</span></a><p><a href="https://musemusic.phitik.com/" target="_blank" rel="noopener noreferrer">ลองเปิดเว็บไซต์ ↗</a></p></div>
+    </article><aside class="article-aside" aria-label="สารบัญ"><strong>ในหน้านี้</strong><a href="#problem">โจทย์</a><a href="#flow">เส้นทางการใช้งาน</a><a href="#engineering">ระบบเบื้องหลัง</a><a href="#limits">ข้อจำกัด</a><p>โปรเจกต์ส่วนตัวที่ยังพัฒนาและปรับปรุงต่อ</p></aside></div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-top"><div><a class="wordmark footer-mark" href="/"><span class="wordmark-symbol" aria-hidden="true">P.</span><span>phitik<span class="wordmark-dot">.</span></span></a><p>รวมงานที่ผมทำ เรื่องที่เคยพัง<br>และสิ่งที่ได้เรียนรู้ระหว่างทาง</p></div><nav aria-label="ข้อมูลเว็บไซต์"><a href="/work/">ผลงานทั้งหมด</a><a href="/about/">ประวัติและเรื่องราว</a><a href="/privacy/">ความเป็นส่วนตัว</a></nav></div><div class="shell footer-bottom"><span>© 2026 Phitik.com</span><span>ทำเอง แก้เอง และยังปรับอยู่เรื่อย ๆ</span></div></footer>
+</body>
+</html>
