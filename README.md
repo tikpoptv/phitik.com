@@ -14,6 +14,9 @@ JavaScript and gives each page a unique URL, title, description, and canonical.
 - `/`: personal introduction and selected work
 - `/work/`: curated portfolio with project context and source links
 - `/work/plate-finder/`: original product case study
+- `/work/muse-music/`: music product case study
+- `/work/open-house/`: bilingual event website team case study
+- `/work/hackathon-verification/`: Discord verification system case study
 - `/about/`: personal history, education, experience, working perspective, contact
 - `/privacy/`: privacy and third-party service disclosure
 
@@ -29,7 +32,7 @@ npm run build
 python3 -m http.server 8765 --directory build
 ```
 
-Then open `http://localhost:8765/` and inspect the five pages on desktop and
+Then open `http://localhost:8765/` and inspect the eight pages on desktop and
 mobile. `check:pages` verifies unique titles, descriptions, one H1 per page,
 canonical URLs, internal links, and sitemap entries.
 
@@ -42,6 +45,6 @@ real content files and should return 404 for unknown paths instead of rewriting
 every URL to the homepage.
 
 No deployment or AdSense review submission happens as part of a local build.
-After publishing, verify the live HTML, all five routes, `/sitemap.xml`,
+After publishing, verify the live HTML, all eight routes, `/sitemap.xml`,
 `/robots.txt`, `/ads.txt`, and AdSense privacy/consent settings before
 requesting another review. Google's approval is not guaranteed by these changes.
