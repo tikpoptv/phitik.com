@@ -3,5 +3,9 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "build",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+  ]
 }
