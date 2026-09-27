@@ -40,9 +40,9 @@ canonical URLs, internal links, and sitemap entries.
 
 The root domain currently redirects to `https://www.phitik.com/` on Vercel.
 The canonical URLs and sitemap use that final URL. Netlify and Docker
-configurations are retained as alternate deployment options. Both now serve
-real content files and should return 404 for unknown paths instead of rewriting
-every URL to the homepage.
+configurations are retained as alternate deployment options. `vercel.json`
+uses the static build output rather than the legacy single-page-app routing,
+so unknown paths should return the custom 404 page instead of the homepage.
 
 No deployment or AdSense review submission happens as part of a local build.
 After publishing, verify the live HTML, all eight routes, `/sitemap.xml`,
